@@ -2,9 +2,8 @@
 using JewelArchitecture.Examples.SmartCharging.Application.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.QueryHandlers;
-using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
-using JewelArchitecture.Examples.SmartCharging.Core.DomainEvents;
-using JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainEvents;
+using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.EventHandlers;
 

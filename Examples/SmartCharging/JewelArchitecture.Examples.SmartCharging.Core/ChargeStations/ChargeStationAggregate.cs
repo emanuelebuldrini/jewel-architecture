@@ -1,10 +1,9 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.DomainEvents;
-using JewelArchitecture.Examples.SmartCharging.Core.DomainExceptions;
-using JewelArchitecture.Examples.SmartCharging.Core.Entities;
-using JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+﻿using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainEvents;
+using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainExceptions;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using System.Text.Json.Serialization;
 
-namespace JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
+namespace JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 
 public record ChargeStationAggregate : AggregateRootBase
 {
@@ -45,14 +44,14 @@ public record ChargeStationAggregate : AggregateRootBase
         var chargeStation = new ChargeStationAggregate
         {
             Name = name,
-            
+
             Connectors = connectors.Select(s => new ChargeStationConnectorEntity
             {
                 Id = s.Id,
                 MaxCurrent = s.MaxCurrent
             })
             .ToList().AsReadOnly(),
-            
+
             Group = group
         };
 
@@ -69,10 +68,10 @@ public record ChargeStationAggregate : AggregateRootBase
     }
 
     public void Remove(bool cascadeRemoval = false)
-    {        
+    {
         // Application layer processes the removal of the charge station.
         RaisedEvents.Add(new ChargeStationRemoved(Id, Group));
-        
+
         // Related connectors are automatically removed since they are part of the charge station aggregate.
         foreach (var connector in _connectors)
         {

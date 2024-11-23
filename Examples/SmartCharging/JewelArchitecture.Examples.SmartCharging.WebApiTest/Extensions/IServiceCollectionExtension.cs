@@ -1,5 +1,6 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
-using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
+using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Extensions

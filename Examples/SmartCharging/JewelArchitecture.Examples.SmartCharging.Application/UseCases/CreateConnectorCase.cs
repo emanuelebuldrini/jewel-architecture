@@ -5,10 +5,11 @@ using JewelArchitecture.Examples.SmartCharging.Application.Queries.Results;
 using JewelArchitecture.Examples.SmartCharging.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.QueryHandlers;
 using JewelArchitecture.Examples.SmartCharging.Application.UseCases.Input;
-using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
-using JewelArchitecture.Examples.SmartCharging.Core.DomainExceptions;
-using JewelArchitecture.Examples.SmartCharging.Core.DomainServices;
-using JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Core.Groups;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared.DomainServices;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainExceptions;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.UseCases;
 

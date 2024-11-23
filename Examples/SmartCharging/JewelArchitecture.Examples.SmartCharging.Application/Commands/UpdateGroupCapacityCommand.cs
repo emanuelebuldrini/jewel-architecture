@@ -1,5 +1,5 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
-using JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+﻿using JewelArchitecture.Examples.SmartCharging.Core.Groups;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Commands;
 

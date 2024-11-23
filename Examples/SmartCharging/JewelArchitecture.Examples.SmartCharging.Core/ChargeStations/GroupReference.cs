@@ -1,6 +1,6 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.Helpers;
+﻿using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
-namespace JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+namespace JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 
 public record GroupReference
 {

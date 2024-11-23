@@ -1,8 +1,6 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.DomainEvents;
-using JewelArchitecture.Examples.SmartCharging.Core.Helpers;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
+namespace JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
 public abstract record AggregateRootBase
 {
@@ -28,7 +26,7 @@ public abstract record AggregateRootBase
         set
         {
             ValidatorHelper.ValidateName(value);
-            
+
             _name = value;
         }
     }

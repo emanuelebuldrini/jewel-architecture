@@ -1,4 +1,4 @@
-﻿namespace JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+﻿namespace JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
 public record AmpereUnit
 {
@@ -7,7 +7,7 @@ public record AmpereUnit
         ArgumentOutOfRangeException.ThrowIfLessThan(value, 1);
 
         Value = value;
-    }       
+    }
 
-    public int Value { get; }   
+    public int Value { get; }
 }

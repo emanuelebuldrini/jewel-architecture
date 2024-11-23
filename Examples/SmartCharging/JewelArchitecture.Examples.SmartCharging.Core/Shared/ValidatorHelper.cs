@@ -1,4 +1,4 @@
-﻿namespace JewelArchitecture.Examples.SmartCharging.Core.Helpers;
+﻿namespace JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
 internal class ValidatorHelper
 {

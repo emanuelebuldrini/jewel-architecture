@@ -1,7 +1,7 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.DomainEvents;
-using JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+﻿using JewelArchitecture.Examples.SmartCharging.Core.Groups.DomainEvents;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
-namespace JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
+namespace JewelArchitecture.Examples.SmartCharging.Core.Groups;
 
 public record GroupAggregate : AggregateRootBase
 {
@@ -11,8 +11,8 @@ public record GroupAggregate : AggregateRootBase
 
         set
         {
-            bool isUpdate = _capacity != null;   
-            
+            bool isUpdate = _capacity != null;
+
             _capacity = value;
 
             if (isUpdate)

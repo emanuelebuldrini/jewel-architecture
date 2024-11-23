@@ -1,6 +1,6 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.EventHandlers;
 using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
-using JewelArchitecture.Examples.SmartCharging.Core.DomainEvents;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JewelArchitecture.Examples.SmartCharging.Infrastructure.EventDispatchers

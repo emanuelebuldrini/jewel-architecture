@@ -1,6 +1,6 @@
 ﻿
 using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
-using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Repositories;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks

@@ -1,7 +1,7 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
-using JewelArchitecture.Examples.SmartCharging.Infrastructure.Serializers;
+﻿using JewelArchitecture.Examples.SmartCharging.Infrastructure.Serializers;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Repositories;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories
 {

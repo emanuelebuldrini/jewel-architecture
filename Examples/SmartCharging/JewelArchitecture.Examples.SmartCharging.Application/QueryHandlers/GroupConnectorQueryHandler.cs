@@ -1,7 +1,7 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Queries.Results;
-using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
-using JewelArchitecture.Examples.SmartCharging.Core.Entities;
+using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.QueryHandlers;
 

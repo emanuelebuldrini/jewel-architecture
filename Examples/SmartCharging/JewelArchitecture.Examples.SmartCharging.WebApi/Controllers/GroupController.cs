@@ -1,13 +1,13 @@
 using JewelArchitecture.Examples.SmartCharging.Application.ApplicationServices;
 using JewelArchitecture.Examples.SmartCharging.Application.Dto.Group;
-using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
 using Microsoft.AspNetCore.Mvc;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Helpers;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Examples;
 using Swashbuckle.AspNetCore.Filters;
 using JewelArchitecture.Examples.SmartCharging.Application.UseCases;
-using JewelArchitecture.Examples.SmartCharging.Core.DomainExceptions;
 using JewelArchitecture.Examples.SmartCharging.Application.UseCases.Input;
+using JewelArchitecture.Examples.SmartCharging.Core.Groups;
+using JewelArchitecture.Examples.SmartCharging.Core.Groups.DomainExceptions;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
 

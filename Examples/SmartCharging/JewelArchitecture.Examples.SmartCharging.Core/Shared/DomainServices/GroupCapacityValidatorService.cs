@@ -1,7 +1,7 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.Entities;
-using JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+﻿using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
-namespace JewelArchitecture.Examples.SmartCharging.Core.DomainServices;
+namespace JewelArchitecture.Examples.SmartCharging.Core.Shared.DomainServices;
 
 public class GroupCapacityValidatorService
 {
@@ -22,16 +22,16 @@ public class GroupCapacityValidatorService
         GroupCapacityInvariant(GetMaxSumExceptConnector(groupConnectors, connectorToUpdate), editedMaxCurrent.Value, groupCapacity) ?
         (true, null) : (false, CapacityValidationError);
 
-    public (bool canAdd, string? validationError) CanAddChargeStationConnectors(IReadOnlyCollection<(ConnectorId,AmpereUnit)> chargeStationConnectors,
+    public (bool canAdd, string? validationError) CanAddChargeStationConnectors(IReadOnlyCollection<(ConnectorId, AmpereUnit)> chargeStationConnectors,
         AmpereUnit groupCapacity, IReadOnlyCollection<ChargeStationConnectorEntity> groupConnectors) =>
         GroupCapacityInvariant(GetMaxSum(groupConnectors), GetMaxSum(chargeStationConnectors), groupCapacity) ?
         (true, null) : (false, CapacityValidationError);
-    
+
     // Passthrough for a collection of Connectors already existing.
     public (bool canAdd, string? validationError) CanAddChargeStationConnectors(IReadOnlyCollection<ChargeStationConnectorEntity> chargeStationConnectors,
-        AmpereUnit groupCapacity, IReadOnlyCollection<ChargeStationConnectorEntity> groupConnectors)=>
-         CanAddChargeStationConnectors(chargeStationConnectors.Select(s=>(s.Id,s.MaxCurrent)).ToList().AsReadOnly(), groupCapacity, groupConnectors);
-    
+        AmpereUnit groupCapacity, IReadOnlyCollection<ChargeStationConnectorEntity> groupConnectors) =>
+         CanAddChargeStationConnectors(chargeStationConnectors.Select(s => (s.Id, s.MaxCurrent)).ToList().AsReadOnly(), groupCapacity, groupConnectors);
+
     public (bool canAdd, string? validationError) CanAddChargeStationConnector(AmpereUnit addingConnectorMaxCurrent,
         AmpereUnit groupCapacity, IReadOnlyCollection<ChargeStationConnectorEntity> groupConnectors) =>
         GroupCapacityInvariant(GetMaxSum(groupConnectors), addingConnectorMaxCurrent.Value, groupCapacity) ?

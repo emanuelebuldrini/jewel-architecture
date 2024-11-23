@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Dto.ChargeStation.Connector;
-using JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.UseCases.Input;
 

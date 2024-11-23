@@ -1,6 +1,6 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text;
+using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Infrastructure.Serializers
 {

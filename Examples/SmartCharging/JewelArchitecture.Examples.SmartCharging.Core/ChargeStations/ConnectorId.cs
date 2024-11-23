@@ -1,4 +1,4 @@
-﻿namespace JewelArchitecture.Examples.SmartCharging.Core.ValueObjects;
+﻿namespace JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 
 public record ConnectorId
 {
@@ -10,7 +10,7 @@ public record ConnectorId
         }
 
         Value = value;
-    }       
+    }
 
     public int Value { get; }
 }

@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.AggregateRoots;
+﻿using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Commands;
 
