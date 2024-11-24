@@ -13,7 +13,7 @@ This repository contains solutions structured using the Jewel Architecture, like
 
 **5. Cross-Cutting Concerns are Extensible:** Decorators are a clean and flexible way to manage these concerns.
 
-**6. Focused Interaction:** The application layer exposes Use Cases or Services, offering clear entry points for consumers.
+**6. Focused Interaction:** The application layer exposes Use Cases or Services, offering clear entry points for the interface layer.
 
 ## Smart Charging Example Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine
@@ -51,13 +51,14 @@ To run tests for the application, use:
 ```bash
 dotnet test
 ```
-### 6. Project Structure
-This project follows a clean architecture, with the following key layers:
+### 6. Solution Structure
+This solution uses an aggregate-based folder structure and follows a clean architecture, with the following key layers:
 
-- Application Layer: Contains use cases and business logic.
-- Domain Layer (Core): Defines entities and aggregates, using an in-memory repository implementation for simplicity.
+- Application Layer: Contains use cases, services and business logic.
+- Domain Layer: Defines entities, aggregates, value objects, invariants and domain logic.
 - Infrastructure Layer: Optional infrastructure components (in-memory database used here).
-- Presentation Layer: ASP.NET Core Web API exposing application endpoints.
+- Interface Layer: ASP.NET Core Web API exposing application endpoints.
 ### 7. Customization
-If you need to add persistent storage or external dependencies in the future, consider replacing the in-memory repository with a real database implementation, adding external services, or configuring additional infrastructure components.
+If you need to implement cross-cutting concerns like logging, auditing, exceptions handling: Decorators for Commands, Queries or Use Cases are a clean and flexible way to manage these concerns.
+If you need to add persistent storage or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
 
