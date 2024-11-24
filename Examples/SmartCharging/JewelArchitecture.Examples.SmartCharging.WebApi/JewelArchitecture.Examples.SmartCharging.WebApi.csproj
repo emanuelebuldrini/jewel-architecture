@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.Application\JewelArchitecture.Examples.SmartCharging.Application.csproj" />
-    <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.Core\JewelArchitecture.Examples.SmartCharging.Core.csproj" />
+    <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.Domain\JewelArchitecture.Examples.SmartCharging.Domain.csproj" />
     <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.Infrastructure\JewelArchitecture.Examples.SmartCharging.Infrastructure.csproj" />
   </ItemGroup>
 

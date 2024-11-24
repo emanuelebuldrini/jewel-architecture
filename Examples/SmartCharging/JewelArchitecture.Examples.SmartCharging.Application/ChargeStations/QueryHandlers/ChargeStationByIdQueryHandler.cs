@@ -1,7 +1,7 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.QueryHandlers;
 

@@ -3,8 +3,8 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Querie
 using JewelArchitecture.Examples.SmartCharging.Application.Shared;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups.DomainEvents;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups.DomainEvents;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.EventHandlers
 {

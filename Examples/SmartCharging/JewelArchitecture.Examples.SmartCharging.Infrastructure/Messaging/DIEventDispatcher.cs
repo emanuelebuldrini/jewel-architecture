@@ -1,6 +1,6 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Shared;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JewelArchitecture.Examples.SmartCharging.Infrastructure.Messaging

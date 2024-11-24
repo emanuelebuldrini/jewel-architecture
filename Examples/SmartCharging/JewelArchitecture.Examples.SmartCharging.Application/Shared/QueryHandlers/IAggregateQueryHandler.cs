@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
 

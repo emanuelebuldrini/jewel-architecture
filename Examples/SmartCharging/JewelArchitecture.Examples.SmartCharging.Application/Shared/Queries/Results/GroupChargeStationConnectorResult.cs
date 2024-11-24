@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
+﻿using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
 

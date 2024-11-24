@@ -1,6 +1,6 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Infrastructure.Concurrency
 {

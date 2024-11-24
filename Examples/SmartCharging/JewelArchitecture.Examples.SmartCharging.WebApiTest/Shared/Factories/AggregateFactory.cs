@@ -1,6 +1,6 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+﻿using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using System.Collections.ObjectModel;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared

@@ -1,7 +1,7 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.QueryHandlers;
 

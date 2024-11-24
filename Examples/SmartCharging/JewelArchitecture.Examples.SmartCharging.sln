@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Core", "JewelArchitecture.Examples.SmartCharging.Core\JewelArchitecture.Examples.SmartCharging.Core.csproj", "{719837B5-C5C4-45C5-B031-EC6395FD81DF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Application", "JewelArchitecture.Examples.SmartCharging.Application\JewelArchitecture.Examples.SmartCharging.Application.csproj", "{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Infrastructure", "JewelArchitecture.Examples.SmartCharging.Infrastructure\JewelArchitecture.Examples.SmartCharging.Infrastructure.csproj", "{8B2E0568-4300-4D8F-A446-879B56B91E23}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.WebApiTest", "JewelArchitecture.Examples.SmartCharging.WebApiTest\JewelArchitecture.Examples.SmartCharging.WebApiTest.csproj", "{C2E950EF-7FC9-4F77-8351-59FD13D8C004}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Domain", "JewelArchitecture.Examples.SmartCharging.Domain\JewelArchitecture.Examples.SmartCharging.Domain.csproj", "{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{719837B5-C5C4-45C5-B031-EC6395FD81DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{719837B5-C5C4-45C5-B031-EC6395FD81DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{719837B5-C5C4-45C5-B031-EC6395FD81DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{719837B5-C5C4-45C5-B031-EC6395FD81DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{C2E950EF-7FC9-4F77-8351-59FD13D8C004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2E950EF-7FC9-4F77-8351-59FD13D8C004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2E950EF-7FC9-4F77-8351-59FD13D8C004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,8 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Groups;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency;

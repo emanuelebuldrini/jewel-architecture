@@ -6,10 +6,10 @@ using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.UseCases;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainExceptions;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared.DomainServices;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations.DomainExceptions;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared.DomainServices;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 

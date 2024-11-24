@@ -4,7 +4,7 @@ using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.ApplicationServices;
 

@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Persistence;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency

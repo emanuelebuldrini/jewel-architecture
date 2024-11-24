@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Infrastructure.Persistence
 {

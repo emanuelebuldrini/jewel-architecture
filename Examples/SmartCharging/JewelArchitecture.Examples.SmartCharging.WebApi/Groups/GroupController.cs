@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups.DomainExceptions;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups.DomainExceptions;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.UseCases;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;

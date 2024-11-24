@@ -5,8 +5,8 @@ using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
-using JewelArchitecture.Examples.SmartCharging.Core.Groups;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
+using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.ApplicationServices;
 

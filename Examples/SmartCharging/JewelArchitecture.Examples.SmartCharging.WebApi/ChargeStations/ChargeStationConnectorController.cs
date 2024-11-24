@@ -2,8 +2,8 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Applic
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
-using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainExceptions;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
+using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations.DomainExceptions;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;

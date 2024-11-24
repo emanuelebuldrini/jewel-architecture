@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+﻿using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Persistence;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency;
 
