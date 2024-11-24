@@ -1,7 +1,8 @@
-using JewelArchitecture.Examples.SmartCharging.Application.ApplicationServices;
-using JewelArchitecture.Examples.SmartCharging.Application.Dto.ChargeStation;
-using JewelArchitecture.Examples.SmartCharging.Application.UseCases;
-using JewelArchitecture.Examples.SmartCharging.Application.UseCases.Input;
+using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.ApplicationServices;
+using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
+using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
+using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
+using JewelArchitecture.Examples.SmartCharging.Application.Groups.ApplicationServices;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainExceptions;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Examples;

@@ -1,5 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Dto.ChargeStation;
-using JewelArchitecture.Examples.SmartCharging.Application.Dto.ChargeStation.Connector;
+﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApi.Examples;

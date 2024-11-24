@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Dto.Group;
+﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApi.Examples;

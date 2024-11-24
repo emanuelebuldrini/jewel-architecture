@@ -1,6 +1,5 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Dto.ChargeStation;
-using JewelArchitecture.Examples.SmartCharging.Application.Dto.ChargeStation.Connector;
-using JewelArchitecture.Examples.SmartCharging.Application.Dto.Group;
+﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
+using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;

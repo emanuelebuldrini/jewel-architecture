@@ -1,5 +1,0 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
-
-namespace JewelArchitecture.Examples.SmartCharging.Application.Queries.Results;
-
-public record GroupChargeStationConnectorResult(ChargeStationAggregate ChargeStation, GroupConnectorResult GroupConnectors);

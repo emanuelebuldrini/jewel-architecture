@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
+﻿using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Extensions;
