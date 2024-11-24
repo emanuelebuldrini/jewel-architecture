@@ -12,7 +12,7 @@ namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Ap
 public class ChargeStationService(ILockService<ChargeStationAggregate> chargeStationLockService,
     IAggregateExistsQueryHandler<ChargeStationAggregate, AggregateExistsQuery<ChargeStationAggregate>> chargeStationExistsQueryHandler,
     IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate> chargeStationByIdQueryHandler,
-    ICommandHandler<AddChargeStationCommand> addOrReplaceChargeStationCommandHandler
+    ICommandHandler<AddOrReplaceChargeStationCommand> addOrReplaceChargeStationCommandHandler
 )
 {
     public async Task<bool> ExistsAsync(Guid id)
@@ -34,6 +34,6 @@ public class ChargeStationService(ILockService<ChargeStationAggregate> chargeSta
 
         chargeStation.Name = editDto.Name;
 
-        await addOrReplaceChargeStationCommandHandler.HandleAsync(new AddChargeStationCommand(chargeStation));
+        await addOrReplaceChargeStationCommandHandler.HandleAsync(new AddOrReplaceChargeStationCommand(chargeStation));
     }
 }

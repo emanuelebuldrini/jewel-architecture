@@ -9,7 +9,7 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.EventHandlers;
 
 public class ChargeStationCreatedHandler(IQueryHandler<GroupByIdQuery, GroupAggregate> groupByIdQueryHandler,
-    ICommandHandler<AddGroupCommand> addOrReplaceGroupCommandHandler)
+    ICommandHandler<AddOrReplaceGroupCommand> addOrReplaceGroupCommandHandler)
     : IEventHandler<ChargeStationCreated>
 {
     public async Task HandleAsync(ChargeStationCreated domainEvent)
@@ -18,6 +18,6 @@ public class ChargeStationCreatedHandler(IQueryHandler<GroupByIdQuery, GroupAggr
         var group = await groupByIdQueryHandler.HandleAsync(new GroupByIdQuery(domainEvent.Group.Id));
         group.ChargeStations.Add(new ChargeStationReference(domainEvent.ChargeStationId));
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddGroupCommand(group));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceGroupCommand(group));
     }
 }

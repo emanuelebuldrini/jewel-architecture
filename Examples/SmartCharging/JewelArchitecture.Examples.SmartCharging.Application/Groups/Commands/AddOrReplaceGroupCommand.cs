@@ -3,5 +3,5 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.Commands;
 
-public record AddGroupCommand(GroupAggregate Aggregate)
+public record AddOrReplaceGroupCommand(GroupAggregate Aggregate)
     : IAggregateCommand<GroupAggregate>;

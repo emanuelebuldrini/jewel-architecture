@@ -13,7 +13,7 @@ namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.Applicatio
 public class GroupService(ILockService<GroupAggregate> groupLockService,
         IQueryHandler<GroupByIdQuery, GroupAggregate> groupByIdQueryHandler,
         IAggregateExistsQueryHandler<GroupAggregate, AggregateExistsQuery<GroupAggregate>> groupExistsQueryHandler,
-        ICommandHandler<AddGroupCommand> addOrReplaceGroupCommandHandler
+        ICommandHandler<AddOrReplaceGroupCommand> addOrReplaceGroupCommandHandler
 )
 {
     public async Task<Guid> CreateAsync(GroupCreateDto dto)
@@ -24,7 +24,7 @@ public class GroupService(ILockService<GroupAggregate> groupLockService,
             Capacity = new AmpereUnit(dto.CapacityAmps)
         };
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddGroupCommand(group));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceGroupCommand(group));
 
         return group.Id;
     }
@@ -47,6 +47,6 @@ public class GroupService(ILockService<GroupAggregate> groupLockService,
         var group = await GetSingleAsync(id);
         group.Name = dto.Name;
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddGroupCommand(group));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceGroupCommand(group));
     }
 }

@@ -16,7 +16,7 @@ namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Us
 public class CreateChargeStationCase(ILockService<ChargeStationAggregate> chargeStationLockService,
     ILockService<GroupAggregate> groupLockService,
     IQueryHandler<GroupConnectorQuery, GroupConnectorResult> groupConnectorQueryHandler,
-    IAggregateCommandHandler<AddChargeStationCommand, ChargeStationAggregate> addChargeStationCommandHandler,
+    IAggregateCommandHandler<AddOrReplaceChargeStationCommand, ChargeStationAggregate> addChargeStationCommandHandler,
     GroupCapacityValidatorService groupCapacityValidator) : IUseCase<CreateChargeStationInput, Guid>
 {
     public async Task<Guid> HandleAsync(CreateChargeStationInput input)
@@ -41,7 +41,7 @@ public class CreateChargeStationCase(ILockService<ChargeStationAggregate> charge
 
         var chargeStation = ChargeStationAggregate.Create(input.Name, input.Connectors,
             new GroupReference(groupId));
-        var command = new AddChargeStationCommand(chargeStation);
+        var command = new AddOrReplaceChargeStationCommand(chargeStation);
 
         await addChargeStationCommandHandler.HandleAsync(command);
 

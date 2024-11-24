@@ -5,10 +5,10 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.CommandHandlers;
 
-public class AddGroupCommandHandler(IRepository<GroupAggregate> groupRepo)
-    : IAggregateCommandHandler<AddGroupCommand, GroupAggregate>
+public class AddOrReplaceGroupCommandHandler(IRepository<GroupAggregate> groupRepo)
+    : IAggregateCommandHandler<AddOrReplaceGroupCommand, GroupAggregate>
 {
-    public async Task HandleAsync(AddGroupCommand cmd)
+    public async Task HandleAsync(AddOrReplaceGroupCommand cmd)
     {
         var group = cmd.Aggregate;
         await groupRepo.AddOrReplaceAsync(group);

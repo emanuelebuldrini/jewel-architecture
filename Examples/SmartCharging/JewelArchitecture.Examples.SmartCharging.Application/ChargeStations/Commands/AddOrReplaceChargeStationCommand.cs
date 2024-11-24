@@ -3,5 +3,5 @@ using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 
-public record AddChargeStationCommand(ChargeStationAggregate Aggregate)
+public record AddOrReplaceChargeStationCommand(ChargeStationAggregate Aggregate)
     : IAggregateCommand<ChargeStationAggregate>;
