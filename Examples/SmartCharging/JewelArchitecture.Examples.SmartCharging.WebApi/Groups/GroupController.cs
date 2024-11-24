@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Helpers;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Examples;
 using Swashbuckle.AspNetCore.Filters;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups.DomainExceptions;
@@ -10,8 +8,10 @@ using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.ApplicationServices;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.UseCases.Input;
+using JewelArchitecture.Examples.SmartCharging.WebApi.Groups.DtoExamples;
+using JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
+namespace JewelArchitecture.Examples.SmartCharging.WebApi.Groups;
 
 [ApiController]
 [Route("api/[controller]")]

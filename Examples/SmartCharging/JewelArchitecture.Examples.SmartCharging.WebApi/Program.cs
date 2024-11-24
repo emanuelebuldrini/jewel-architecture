@@ -1,5 +1,5 @@
-using JewelArchitecture.Examples.SmartCharging.WebApi.Examples;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Extensions;
+using JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations.DtoExamples;
+using JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 

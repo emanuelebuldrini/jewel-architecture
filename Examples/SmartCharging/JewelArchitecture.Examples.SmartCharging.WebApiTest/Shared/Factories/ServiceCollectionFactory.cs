@@ -1,5 +1,5 @@
-﻿using JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Extensions;
+﻿using JewelArchitecture.Examples.SmartCharging.WebApi.Groups;
+using JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 

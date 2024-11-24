@@ -2,7 +2,7 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
+using JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;

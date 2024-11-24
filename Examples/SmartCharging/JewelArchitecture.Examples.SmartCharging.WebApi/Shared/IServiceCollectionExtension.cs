@@ -29,7 +29,7 @@ using JewelArchitecture.Examples.SmartCharging.Infrastructure.Concurrency;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Messaging;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Persistence;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApi.Extensions;
+namespace JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 
 public static class IServiceCollectionExtension
 {

@@ -1,7 +1,7 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApi.Examples;
+namespace JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations.DtoExamples;
 
 public class ChargeStationEditDtoExample : IExamplesProvider<ChargeStationEditDto>
 {

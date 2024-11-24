@@ -4,11 +4,11 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCas
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainExceptions;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Helpers;
+using JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
+namespace JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations;
 
 [ApiController]
 [Route("api/ChargeStation/{chargeStationId:guid}/[controller]")]

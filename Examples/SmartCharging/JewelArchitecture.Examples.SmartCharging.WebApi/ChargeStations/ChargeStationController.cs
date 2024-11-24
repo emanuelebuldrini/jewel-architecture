@@ -5,12 +5,12 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCas
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.ApplicationServices;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations.DomainExceptions;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Examples;
-using JewelArchitecture.Examples.SmartCharging.WebApi.Helpers;
+using JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations.DtoExamples;
+using JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
+namespace JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations;
 
 [ApiController]
 [Route("api/[controller]")]

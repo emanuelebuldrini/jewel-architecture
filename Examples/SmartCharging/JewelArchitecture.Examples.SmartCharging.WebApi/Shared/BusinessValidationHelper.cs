@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApi.Helpers;
+namespace JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 
 public class BusinessValidationHelper
 {
@@ -9,7 +9,7 @@ public class BusinessValidationHelper
         var errorDetails = new ValidationProblemDetails
         {
             Title = "Business validation failed",
-            Detail = "Please refer to the errors property for additional details."            
+            Detail = "Please refer to the errors property for additional details."
         };
 
         errorDetails.Errors.Add(errorKey, [validationError]);

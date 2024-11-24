@@ -3,13 +3,13 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCas
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApi.Helpers
+namespace JewelArchitecture.Examples.SmartCharging.WebApi.Shared
 {
     public static class DtoUseCaseInputMapper
     {
         public static CreateChargeStationInput MapCreateChargeStationDto(ChargeStationCreateDto dto)
         {
-            var chargeStationConnectors = new List<(ConnectorId,AmpereUnit)>();
+            var chargeStationConnectors = new List<(ConnectorId, AmpereUnit)>();
             foreach (var connectorCreateDto in dto.Connectors)
             {
                 chargeStationConnectors.Add((new ConnectorId(connectorCreateDto.Id!.Value),
@@ -17,7 +17,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApi.Helpers
             }
 
             return new CreateChargeStationInput(dto.Name,
-                new GroupReference(dto.GroupReference!.Value), chargeStationConnectors.AsReadOnly());           
+                new GroupReference(dto.GroupReference!.Value), chargeStationConnectors.AsReadOnly());
         }
     }
 }
