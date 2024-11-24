@@ -1,12 +1,9 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
 using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.Extensions;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.TestBases
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared
 {
     public abstract class DiTestBase : IDisposable
     {

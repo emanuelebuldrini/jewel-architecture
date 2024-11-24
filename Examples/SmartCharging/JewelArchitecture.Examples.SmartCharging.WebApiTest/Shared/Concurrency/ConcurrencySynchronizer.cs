@@ -1,4 +1,4 @@
-﻿namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks
+﻿namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency
 {
     public class ConcurrencySynchronizer(int concurrentTasks = 2, int syncMsTimeout = 2000) : IDisposable
     {
@@ -20,7 +20,7 @@
                 waitingThreadCount++; // Track the number of threads waiting
             }
 
-            var synchronized=await _synchronizer.WaitAsync(TimeSpan.FromMilliseconds(syncMsTimeout));
+            var synchronized = await _synchronizer.WaitAsync(TimeSpan.FromMilliseconds(syncMsTimeout));
 
             if (!synchronized)
             {

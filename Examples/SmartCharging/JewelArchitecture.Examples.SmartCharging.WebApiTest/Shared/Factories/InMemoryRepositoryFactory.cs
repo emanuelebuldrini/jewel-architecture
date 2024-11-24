@@ -1,8 +1,8 @@
-﻿using JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks;
-using JewelArchitecture.Examples.SmartCharging.Core.Shared;
+﻿using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Persistence;
+using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Factories
 {
     internal static class InMemoryRepositoryFactory
     {

@@ -1,7 +1,7 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared
 {
     internal class RepositoryMock<TAggregate>() : IRepository<TAggregate>
         where TAggregate : AggregateRootBase
@@ -52,6 +52,6 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks
         {
             _aggregates.Remove(aggregate);
             return Task.CompletedTask;
-        }           
+        }
     }
 }

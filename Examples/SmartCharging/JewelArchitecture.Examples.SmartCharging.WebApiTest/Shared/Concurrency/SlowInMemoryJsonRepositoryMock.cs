@@ -2,7 +2,7 @@
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Persistence;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency
 {
     internal class SlowWriteInMemoryRepositoryMock<TAggregate>(InMemoryJsonRepository<TAggregate> inMemoryRepo,
         int addOrReplaceMsDelay, int removeMsDelay = 5, ConcurrencySynchronizer? startWriteSignal = null)
@@ -21,7 +21,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks
                 await startWriteSignal.WaitAsync();
                 // Simulate a slow write operation.
                 await Task.Delay(addOrReplaceMsDelay);
-            }         
+            }
 
             await inMemoryRepo.AddOrReplaceAsync(aggregate);
         }

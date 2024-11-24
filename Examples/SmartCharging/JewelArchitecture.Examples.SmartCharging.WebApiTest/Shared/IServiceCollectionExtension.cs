@@ -3,7 +3,7 @@ using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Extensions
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared
 {
     internal static class IServiceCollectionExtension
     {

@@ -3,14 +3,12 @@ using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.TestBases;
+using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Groups.UnitTests
 {
     public class GroupControllerTest : DiTestBase
     {
@@ -92,7 +90,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest
             var response = await controller.GetAsync(Guid.NewGuid());
 
             // Assert
-            response.ShouldBeOfType<NotFoundResult>();            
+            response.ShouldBeOfType<NotFoundResult>();
         }
 
         [Fact]
@@ -161,7 +159,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest
             });
 
             // Assert
-            response.ShouldBeOfType<NotFoundResult>();           
+            response.ShouldBeOfType<NotFoundResult>();
         }
 
         [Fact]
@@ -235,7 +233,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest
             var repoGroup1 = groupRepoMock.Aggregates.SingleOrDefault(s => s.Id.Equals(group1.Id));
             repoGroup1.ShouldNotBeNull();
             // The groups should be unaltered.
-            repoGroup1.ShouldBe(group1);              
+            repoGroup1.ShouldBe(group1);
             var repoGroup2 = groupRepoMock.Aggregates.SingleOrDefault(s => s.Id.Equals(group2.Id));
             repoGroup2.ShouldNotBeNull();
             repoGroup2.ShouldBe(group2);
@@ -331,7 +329,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest
             var response = await controller.DeleteAsync(Guid.NewGuid());
 
             // Assert
-            response.ShouldBeOfType<NotFoundResult>();           
+            response.ShouldBeOfType<NotFoundResult>();
         }
     }
 }

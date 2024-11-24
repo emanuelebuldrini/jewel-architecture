@@ -3,7 +3,7 @@ using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using System.Collections.ObjectModel;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared
 {
     internal class AggregateFactory
     {
@@ -49,7 +49,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories
             return chargeStation1;
         }
 
-        private static ChargeStationAggregate CreateChargeStation(GroupAggregate group, 
+        private static ChargeStationAggregate CreateChargeStation(GroupAggregate group,
             ReadOnlyCollection<(ConnectorId, AmpereUnit)> connectors)
         {
             var aggregate = ChargeStationAggregate.Create("Charge Station 1",

@@ -4,13 +4,13 @@ using JewelArchitecture.Examples.SmartCharging.Core.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Core.Groups;
 using JewelArchitecture.Examples.SmartCharging.Core.Shared;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Controllers;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.TestBases;
+using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency;
+using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Factories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.IntegrationTests
 {
     public class GroupChargeStationControllerConcurrencyTest : ConcurrencyDITestBase
     {
@@ -305,8 +305,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest
                     new ChargeStationConnectorUpdateMaxCurrentDto
                     {
                         MaxCurrentAmps = 170
-                    }));            
-            await ShortWaitAsync();            
+                    }));
+            await ShortWaitAsync();
             var task2 = controller2.DeleteAsync(chargeStation1.Id);
 
             await SimulateConcurrency();

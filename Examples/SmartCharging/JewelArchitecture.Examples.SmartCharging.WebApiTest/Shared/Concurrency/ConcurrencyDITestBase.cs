@@ -1,6 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.WebApiTest.Mocks;
-
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.TestBases
+﻿namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency
 {
     public abstract class ConcurrencyDITestBase : DiTestBase
     {

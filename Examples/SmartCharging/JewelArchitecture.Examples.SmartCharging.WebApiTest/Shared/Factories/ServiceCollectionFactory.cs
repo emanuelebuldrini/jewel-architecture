@@ -3,12 +3,12 @@ using JewelArchitecture.Examples.SmartCharging.WebApi.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories
+namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared
 {
     internal class ServiceCollectionFactory
     {
         public static ServiceCollection GetSmartCharging()
-        {        
+        {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddControllers()
                 .AddApplicationPart(Assembly.GetAssembly(typeof(GroupController))!)
@@ -16,7 +16,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Factories
 
             serviceCollection.AddSmartCharging();
 
-            return serviceCollection;           
+            return serviceCollection;
         }
     }
 }
