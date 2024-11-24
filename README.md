@@ -1,10 +1,24 @@
 # Jewel Architecture
 Jewel Architecture is a fusion of DDD, CQRS, and Clean Architecture—a pattern that leverages their individual strengths to create scalable, maintainable, and valuable systems.
-This repository contains examples structured using the Jewel Architecture. It contains an example of a simplified Smart Charging solution. It is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for API documentation and uses an in-memory database, so no external dependencies are required.
+I call it Jewel Architecture because it organizes your system into multifaceted, interchangeable components, creating a highly valuable and mantainable structure—like a finely cut gem.
+This repository contains solutions structured using the Jewel Architecture, like for example a simplified Smart Charging domain.
+## Foundation Principles
+**1. The Domain is Central:** It is self-contained and free from dependencies.
 
-## Smart Charging Prerequisites
+**2. The Application Layer Supports the Domain:** Its role is to provide the domain with the necessary context and data for business decisions.
 
+**3. Commands Drive Change:** Any action that modifies the system's state is encapsulated in a Command.
+
+**4. Queries Provide Insight:** Reading and retrieving data from the system is handled through Queries.
+
+**5. Cross-Cutting Concerns are Extensible:** Decorators are a clean and flexible way to manage these concerns.
+
+**6. Focused Interaction:** The application layer exposes Use Cases or Services, offering clear entry points for consumers.
+
+## Smart Charging Example Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine
+  
+It is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for API documentation and uses an in-memory database, so no external dependencies are required.
 
 ## Getting Started
 
