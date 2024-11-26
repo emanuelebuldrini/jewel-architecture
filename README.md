@@ -60,5 +60,10 @@ This solution uses an aggregate-based folder structure and follows a clean archi
 - Interface Layer: ASP.NET Core Web API exposing application endpoints.
 ### 7. Customization
 If you need to implement cross-cutting concerns like logging, auditing, exceptions handling: Decorators for Commands, Queries or Use Cases are a clean and flexible way to manage these concerns.
+
+If you need to go full async with CQRS: It is enough to write Commands and Queries in a queue and then move the handlers in a separate background process or dedicated worker that processes them asynchronously.
+
+Also, if you need to manage Domain Events in a loosely coupled way: You can publish them in a message bus and let the subscribers handle them.
+
 If you need to add persistent storage or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
 
