@@ -1,16 +1,7 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.ApplicationServices;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.CommandHandlers;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.EventHandlers;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Queries;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.QueryHandlers;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.ApplicationServices;
-using JewelArchitecture.Examples.SmartCharging.Application.Groups.CommandHandlers;
-using JewelArchitecture.Examples.SmartCharging.Application.Groups.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.Groups.EventHandlers;
-using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
-using JewelArchitecture.Examples.SmartCharging.Application.Groups.QueryHandlers;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.UseCases;
 using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared;
@@ -20,10 +11,7 @@ using JewelArchitecture.Examples.SmartCharging.Application.Shared.Decorators;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
-using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations.DomainEvents;
-using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
-using JewelArchitecture.Examples.SmartCharging.Domain.Groups.DomainEvents;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared.DomainServices;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Concurrency;
 using JewelArchitecture.Examples.SmartCharging.Infrastructure.Messaging;
@@ -39,11 +27,10 @@ public static class IServiceCollectionExtension
             .AddSingleton(typeof(AggregateEventDispatcherService<>))
             .AddSingleton(typeof(ILockService<>), typeof(InMemoryLockService<>))
 
-            // Handlers registration can be automatized using an assembly scanner, e.g. Scrutor.
-            .AddSingleton<IEventHandler<ChargeStationCascadeRemoval>, ChargeStationCascadeRemovalHandler>()
-            .AddSingleton<IEventHandler<ChargeStationCreated>, ChargeStationCreatedHandler>()
-            .AddSingleton<IEventHandler<ChargeStationRemoved>, ChargeStationRemovedHandler>()
-            .AddSingleton<IEventHandler<ChargeStationGroupChanged>, ChargeStationGroupChangedHandler>()
+            .Scan(scan => scan.FromAssemblyOf<IEventHandler<ChargeStationCreated>>()
+                .AddClasses(classes => classes.AssignableTo(typeof(IEventHandler<>)))
+                .AsImplementedInterfaces()
+                .WithSingletonLifetime())
 
             .AddSingleton<GroupCapacityValidatorService>()
 
@@ -51,27 +38,20 @@ public static class IServiceCollectionExtension
             .AddSingleton<ChargeStationService>()
             .AddSingleton<ChargeStationConnectorService>()
 
-            // Add queries
-            .AddSingleton<IQueryHandler<GroupByIdQuery, GroupAggregate>, GroupByIdQueryHandler>()
-            .AddSingleton<IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate>, ChargeStationByIdQueryHandler>()
-            .AddSingleton<IQueryHandler<GroupConnectorQuery, GroupConnectorResult>, GroupConnectorQueryHandler>()
-            .AddSingleton<IQueryHandler<GroupChargeStationConnectorQuery, GroupChargeStationConnectorResult>, GroupChargeStationConnectorQueryHandler>()
-            .AddSingleton<IQueryHandler<ChangeGroupChargeStationConnectorQuery, GroupChargeStationConnectorResult>, ChangeGroupChargeStationConnectorQueryHandler>()
+            .Scan(scan => scan.FromAssemblyOf<IQueryHandler<GroupConnectorQuery, GroupConnectorResult>>()
+                .AddClasses(classes => classes.AssignableTo(typeof(IQueryHandler<,>)))
+                .AsImplementedInterfaces()
+                .WithSingletonLifetime())
+
             .AddSingleton(typeof(IAggregateExistsQueryHandler<,>), typeof(AggregateExistsQueryHandler<,>))
 
-            // Add commands
-            .AddSingleton<ICommandHandler<ChangeGroupCommand>, ChangeGroupCommandHandler>()
-            .AddSingleton<ICommandHandler<UpdateMaxCurrentCommand>, UpdateMaxCurrentCommandHandler>()
-            .AddSingleton<ICommandHandler<UpdateGroupCapacityCommand>, UpdateGroupCapacityCommandHandler>()
-            .AddSingleton<ICommandHandler<AddOrReplaceChargeStationCommand>, AddOrReplaceChargeStationCommandHandler>()
-            .AddSingleton<ICommandHandler<AddOrReplaceGroupCommand>, AddOrReplaceGroupCommandHandler>()
-            .AddSingleton<ICommandHandler<AddConnectorCommand>, AddConnectorCommandHandler>()
-            .AddSingleton<ICommandHandler<RemoveChargeStationCommand>, RemoveChargeStationCommandHandler>()
-            .AddSingleton<ICommandHandler<RemoveGroupCommand>, RemoveGroupCommandHandler>()
-            .AddSingleton<ICommandHandler<RemoveConnectorCommand>, RemoveConnectorCommandHandler>()
+            .Scan(scan => scan.FromAssemblyOf<ICommandHandler<ChangeGroupCommand>>()
+                .AddClasses(classes => classes.AssignableTo(typeof(ICommandHandler<>)))
+                .AsImplementedInterfaces()
+                .WithSingletonLifetime())
 
             // Add command decorators: should be registered after the command decoratees to wrap them.
-            .AddSingleton(typeof(IAggregateCommandHandler<,>), typeof(AggregateCommandEventDispatcher<,>))
+            .Decorate(typeof(IAggregateCommandHandler<,>), typeof(AggregateCommandEventDispatcher<,>))
 
             // Use cases can be decorated implementing IUseCase<TInput,TOutput>.
             .AddSingleton<CreateChargeStationCase>()
