@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Application", "JewelArchitecture.Core.Application\JewelArchitecture.Core.Application.csproj", "{161B0546-E4FA-4A1D-8515-F1788590D909}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Domain", "JewelArchitecture.Core.Domain\JewelArchitecture.Core.Domain.csproj", "{3CB3C81F-78E8-42F7-B38E-C78B08274FF2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Infrastructure", "JewelArchitecture.Core.Infrastructure\JewelArchitecture.Core.Infrastructure.csproj", "{75D77DF1-6A9C-452E-94EF-0B71DB5848B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Interface", "JewelArchitecture.Core.Interface\JewelArchitecture.Core.Interface.csproj", "{A16CF425-D977-43DD-A27D-A7B462BA8BE5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Test", "JewelArchitecture.Core.Test\JewelArchitecture.Core.Test.csproj", "{538E6358-6577-4FAF-9CBC-DC553F0FD3E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{161B0546-E4FA-4A1D-8515-F1788590D909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161B0546-E4FA-4A1D-8515-F1788590D909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161B0546-E4FA-4A1D-8515-F1788590D909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161B0546-E4FA-4A1D-8515-F1788590D909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB3C81F-78E8-42F7-B38E-C78B08274FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB3C81F-78E8-42F7-B38E-C78B08274FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB3C81F-78E8-42F7-B38E-C78B08274FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB3C81F-78E8-42F7-B38E-C78B08274FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75D77DF1-6A9C-452E-94EF-0B71DB5848B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D77DF1-6A9C-452E-94EF-0B71DB5848B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D77DF1-6A9C-452E-94EF-0B71DB5848B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D77DF1-6A9C-452E-94EF-0B71DB5848B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16CF425-D977-43DD-A27D-A7B462BA8BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16CF425-D977-43DD-A27D-A7B462BA8BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16CF425-D977-43DD-A27D-A7B462BA8BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16CF425-D977-43DD-A27D-A7B462BA8BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538E6358-6577-4FAF-9CBC-DC553F0FD3E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538E6358-6577-4FAF-9CBC-DC553F0FD3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538E6358-6577-4FAF-9CBC-DC553F0FD3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538E6358-6577-4FAF-9CBC-DC553F0FD3E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99F195B7-FD1D-4F28-BBEE-19BC41D76E58}
+	EndGlobalSection
+EndGlobal

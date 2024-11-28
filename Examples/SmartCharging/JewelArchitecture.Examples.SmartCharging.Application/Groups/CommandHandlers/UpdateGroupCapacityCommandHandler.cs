@@ -1,6 +1,6 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.Commands;
+using JewelArchitecture.Core.Application.Abstractions;
+using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.CommandHandlers;

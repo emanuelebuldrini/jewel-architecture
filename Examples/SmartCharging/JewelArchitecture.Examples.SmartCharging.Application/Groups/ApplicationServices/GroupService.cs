@@ -1,12 +1,12 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
-using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
+using JewelArchitecture.Core.Application.Commands;
+using JewelArchitecture.Core.Application.QueryHandlers;
+using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
+using JewelArchitecture.Core.Application.Abstractions;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.ApplicationServices;
 

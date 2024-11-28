@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.UseCases;
+using JewelArchitecture.Core.Application.UseCases;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
 

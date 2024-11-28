@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\JewelArchitecture.Core\JewelArchitecture.Core.Domain\JewelArchitecture.Core.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

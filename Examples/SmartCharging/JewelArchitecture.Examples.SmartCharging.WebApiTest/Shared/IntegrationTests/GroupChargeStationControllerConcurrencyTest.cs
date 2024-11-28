@@ -1,11 +1,11 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
+﻿using JewelArchitecture.Core.Test.Factories;
+using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Groups;
-using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Concurrency;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Factories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +13,7 @@ using Shouldly;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.IntegrationTests
 {
-    public class GroupChargeStationControllerConcurrencyTest : ConcurrencyDITestBase
+    public class GroupChargeStationControllerConcurrencyTest : SmartChargingConcurrencyTestBase
     {
         [Fact]
         public async Task PutGroupAsync_PutCapacityAsync_Success_BadRequest()

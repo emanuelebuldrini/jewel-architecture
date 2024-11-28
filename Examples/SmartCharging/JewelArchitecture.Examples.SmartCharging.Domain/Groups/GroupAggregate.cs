@@ -3,7 +3,7 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 
-public record GroupAggregate : AggregateRootBase
+public record GroupAggregate : SmartChargingAggregate
 {
     public required AmpereUnit Capacity
     {

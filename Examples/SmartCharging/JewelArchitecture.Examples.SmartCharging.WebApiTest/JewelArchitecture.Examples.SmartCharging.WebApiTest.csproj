@@ -18,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\JewelArchitecture.Core\JewelArchitecture.Core.Interface\JewelArchitecture.Core.Interface.csproj" />
+    <ProjectReference Include="..\..\..\JewelArchitecture.Core\JewelArchitecture.Core.Test\JewelArchitecture.Core.Test.csproj" />
     <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.WebApi\JewelArchitecture.Examples.SmartCharging.WebApi.csproj" />
   </ItemGroup>
 

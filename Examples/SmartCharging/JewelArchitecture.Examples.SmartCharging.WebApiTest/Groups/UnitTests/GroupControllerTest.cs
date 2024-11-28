@@ -1,16 +1,18 @@
+using JewelArchitecture.Core.Test;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Groups;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared;
+using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Factories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Groups.UnitTests
 {
-    public class GroupControllerTest : DiTestBase
+    public class GroupControllerTest : SmartChargingTestBase
     {
         [Fact]
         public async Task PostAsync_Success()
@@ -34,7 +36,7 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Groups.UnitTests
             response.ShouldBeOfType<CreatedAtActionResult>();
             var result = response as CreatedAtActionResult;
             result!.Value.ShouldBeOfType<Guid>();
-            var resultGroupId = (Guid)result.Value;
+            var resultGroupId = result.Value;
 
             groupRepoMock.Aggregates.Count.ShouldBe(1);
             var repoGroup = groupRepoMock.Aggregates.First();

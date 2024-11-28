@@ -1,16 +1,18 @@
+using JewelArchitecture.Core.Test;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared;
+using JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Factories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;
 
 namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.UnitTests
 {
-    public class ChargeStationConnectorControllerTest : DiTestBase
+    public class ChargeStationConnectorControllerTest : SmartChargingTestBase
     {
         [Fact]
         public async Task PostAsync_Success()

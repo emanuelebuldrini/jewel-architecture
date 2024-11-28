@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
+﻿using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations.DomainEvents;
 

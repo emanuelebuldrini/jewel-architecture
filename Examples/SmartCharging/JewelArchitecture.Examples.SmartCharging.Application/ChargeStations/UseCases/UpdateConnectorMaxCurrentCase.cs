@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Interfaces;
+﻿using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared.DomainServices;
@@ -8,9 +8,9 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCas
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.UseCases;
-using JewelArchitecture.Examples.SmartCharging.Application.Shared.QueryHandlers;
+using JewelArchitecture.Core.Application.Commands;
+using JewelArchitecture.Core.Application.UseCases;
+using JewelArchitecture.Core.Application.QueryHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 

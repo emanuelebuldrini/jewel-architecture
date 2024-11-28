@@ -1,3 +1,4 @@
+using JewelArchitecture.Core.Interface;
 using JewelArchitecture.Examples.SmartCharging.WebApi.ChargeStations.DtoExamples;
 using JewelArchitecture.Examples.SmartCharging.WebApi.Shared;
 using Microsoft.OpenApi.Models;
@@ -25,8 +26,9 @@ builder.Services.AddSwaggerGen(c =>
 });
 builder.Services.AddSwaggerExamplesFromAssemblyOf<ChargeStationCreateDtoExample>();
 
-builder.Services.AddSmartCharging();
+builder.Services.AddJewelArchitecture();
 builder.Services.AddInMemoryJsonRepository();
+builder.Services.AddSmartCharging();
 
 builder.Services.AddMvc(options =>
 {

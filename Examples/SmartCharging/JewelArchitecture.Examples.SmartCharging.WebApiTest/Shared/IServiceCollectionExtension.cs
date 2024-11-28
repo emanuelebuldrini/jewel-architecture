@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Shared.Abstractions;
+﻿using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using Microsoft.Extensions.DependencyInjection;

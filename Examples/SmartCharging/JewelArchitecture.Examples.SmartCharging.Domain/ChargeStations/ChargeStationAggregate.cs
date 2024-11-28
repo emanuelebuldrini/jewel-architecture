@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 
-public record ChargeStationAggregate : AggregateRootBase
+public record ChargeStationAggregate : SmartChargingAggregate
 {
     private GroupReference? _group;
     private readonly List<ChargeStationConnectorEntity> _connectors = [];

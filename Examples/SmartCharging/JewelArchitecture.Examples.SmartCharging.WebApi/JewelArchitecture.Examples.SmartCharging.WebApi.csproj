@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\JewelArchitecture.Core\JewelArchitecture.Core.Interface\JewelArchitecture.Core.Interface.csproj" />
     <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.Application\JewelArchitecture.Examples.SmartCharging.Application.csproj" />
     <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.Domain\JewelArchitecture.Examples.SmartCharging.Domain.csproj" />
     <ProjectReference Include="..\JewelArchitecture.Examples.SmartCharging.Infrastructure\JewelArchitecture.Examples.SmartCharging.Infrastructure.csproj" />

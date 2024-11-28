@@ -5,13 +5,23 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Application", "JewelArchitecture.Examples.SmartCharging.Application\JewelArchitecture.Examples.SmartCharging.Application.csproj", "{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Infrastructure", "JewelArchitecture.Examples.SmartCharging.Infrastructure\JewelArchitecture.Examples.SmartCharging.Infrastructure.csproj", "{8B2E0568-4300-4D8F-A446-879B56B91E23}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.WebApi", "JewelArchitecture.Examples.SmartCharging.WebApi\JewelArchitecture.Examples.SmartCharging.WebApi.csproj", "{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.WebApiTest", "JewelArchitecture.Examples.SmartCharging.WebApiTest\JewelArchitecture.Examples.SmartCharging.WebApiTest.csproj", "{C2E950EF-7FC9-4F77-8351-59FD13D8C004}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Domain", "JewelArchitecture.Examples.SmartCharging.Domain\JewelArchitecture.Examples.SmartCharging.Domain.csproj", "{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Application", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Application\JewelArchitecture.Core.Application.csproj", "{1AF430F8-5D1E-4243-ACCD-825EF482B85D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Domain", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Domain\JewelArchitecture.Core.Domain.csproj", "{EDA73CCB-14DF-4F8B-9041-BC1F456DDE23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Infrastructure", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Infrastructure\JewelArchitecture.Core.Infrastructure.csproj", "{E18AE659-EE8F-4E12-B918-277EE5FAA966}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Interface", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Interface\JewelArchitecture.Core.Interface.csproj", "{F5BD4D54-65BE-4704-9AB1-A7584A967935}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Test", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Test\JewelArchitecture.Core.Test.csproj", "{C2519782-11A8-46EB-9380-2D1324BC993F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JewelArchitecture.Core", "JewelArchitecture.Core", "{7FE7D2B5-B6C3-4554-BEFE-6DE9C69EF327}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +33,6 @@ Global
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B2E0568-4300-4D8F-A446-879B56B91E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B2E0568-4300-4D8F-A446-879B56B91E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B2E0568-4300-4D8F-A446-879B56B91E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B2E0568-4300-4D8F-A446-879B56B91E23}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,9 +45,36 @@ Global
 		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF430F8-5D1E-4243-ACCD-825EF482B85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF430F8-5D1E-4243-ACCD-825EF482B85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF430F8-5D1E-4243-ACCD-825EF482B85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF430F8-5D1E-4243-ACCD-825EF482B85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA73CCB-14DF-4F8B-9041-BC1F456DDE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA73CCB-14DF-4F8B-9041-BC1F456DDE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA73CCB-14DF-4F8B-9041-BC1F456DDE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA73CCB-14DF-4F8B-9041-BC1F456DDE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E18AE659-EE8F-4E12-B918-277EE5FAA966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18AE659-EE8F-4E12-B918-277EE5FAA966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18AE659-EE8F-4E12-B918-277EE5FAA966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18AE659-EE8F-4E12-B918-277EE5FAA966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5BD4D54-65BE-4704-9AB1-A7584A967935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5BD4D54-65BE-4704-9AB1-A7584A967935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5BD4D54-65BE-4704-9AB1-A7584A967935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5BD4D54-65BE-4704-9AB1-A7584A967935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2519782-11A8-46EB-9380-2D1324BC993F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2519782-11A8-46EB-9380-2D1324BC993F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2519782-11A8-46EB-9380-2D1324BC993F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2519782-11A8-46EB-9380-2D1324BC993F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1AF430F8-5D1E-4243-ACCD-825EF482B85D} = {7FE7D2B5-B6C3-4554-BEFE-6DE9C69EF327}
+		{EDA73CCB-14DF-4F8B-9041-BC1F456DDE23} = {7FE7D2B5-B6C3-4554-BEFE-6DE9C69EF327}
+		{E18AE659-EE8F-4E12-B918-277EE5FAA966} = {7FE7D2B5-B6C3-4554-BEFE-6DE9C69EF327}
+		{F5BD4D54-65BE-4704-9AB1-A7584A967935} = {7FE7D2B5-B6C3-4554-BEFE-6DE9C69EF327}
+		{C2519782-11A8-46EB-9380-2D1324BC993F} = {7FE7D2B5-B6C3-4554-BEFE-6DE9C69EF327}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {196A6CCA-1A01-41E0-AC9B-E47C55370027}
