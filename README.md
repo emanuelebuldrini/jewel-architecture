@@ -67,3 +67,24 @@ Also, if you need to manage Domain Events in a loosely coupled way: You can publ
 
 If you need to add persistent storage or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
 
+### 8. About This Project
+
+This project is an exploration of a software architecture that is suitable to tackle complex problems and challenges of the modern world, created during my own time using personal resources. It’s an opportunity to share ideas and contribute to the broader software engineering community. 
+
+While this project reflects my passion for architecture and design, it is entirely separate from my professional work and is not affiliated with or endorsed by any employer.
+
+
+### 9. 💬 Share Your Feedback
+
+Thank you for exploring **Jewel Architecture**! Your thoughts, suggestions, and ideas are invaluable in shaping this approach. Whether you’re trying it out, have questions, or want to propose improvements, I’d love to hear from you.
+
+Feel free to join the conversation in the **[Discussions](https://github.com/emanuelebuldrini/jewel-architecture/discussions)** section of this repository. Here are some ways you can contribute:
+
+- 💡 Share your thoughts on the principles and implementation of Jewel Architecture.
+- 🛠 Suggest improvements or enhancements.
+- 🧪 Discuss real-world scenarios or use cases where this architecture might shine.
+- ❓ Ask questions if you’re curious or need clarification.
+
+I value every contribution and look forward to engaging with the software engineering community. 
+
+
