@@ -67,10 +67,13 @@ public record ChargeStationAggregate : SmartChargingAggregate
         Events.Add(new ChargeStationConnectorMaxCurrentUpdated(Id, connector.Id, connector.MaxCurrent));
     }
 
-    public override void Remove()
+    public override void Remove(bool isCascadeRemoval = false)
     {
-        // Application layer processes the removal of the charge station.
-        Events.Add(new ChargeStationRemoved(Id, Group));
+        if (!isCascadeRemoval)
+        {
+            // Application layer processes the removal of the charge station and the modifications required on the Group.
+            Events.Add(new ChargeStationRemoved(Id, Group));
+        } // If it is a cascade removal from a Group it should not trigger the above event to avoid loops and inefficiencies.
 
         // Related connectors are automatically removed since they are part of the charge station aggregate.
         foreach (var connector in _connectors)

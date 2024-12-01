@@ -2,7 +2,7 @@
 
 namespace JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
-public abstract record SmartChargingAggregate : AggregateRootBase<Guid>
+public abstract record SmartChargingAggregate : AggregateRootBase<Guid>, IRemovableAggregate
 {
     private readonly Guid _id;
     private string _name;
@@ -36,4 +36,6 @@ public abstract record SmartChargingAggregate : AggregateRootBase<Guid>
         _id = Guid.NewGuid();
         _name = string.Empty;
     }
+
+    public abstract void Remove(bool isCascadeRemoval = false);
 }

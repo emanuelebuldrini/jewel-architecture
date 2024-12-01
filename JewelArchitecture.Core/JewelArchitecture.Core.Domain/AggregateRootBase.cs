@@ -21,6 +21,4 @@ public abstract record AggregateRootBase<TId>: IAggregateRoot<TId>
     {
         Events.Clear();
     }
-
-    public abstract void Remove();  
 }

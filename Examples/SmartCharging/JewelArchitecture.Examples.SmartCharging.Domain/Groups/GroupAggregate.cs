@@ -26,7 +26,7 @@ public record GroupAggregate : SmartChargingAggregate
 
     private AmpereUnit? _capacity;
 
-    public override void Remove()
+    public override void Remove(bool isCascadeRemoval = false)
     {
         // Let application layer remove the related charge stations since they cannot exist without a group.
         foreach (var chargeStationId in ChargeStations)

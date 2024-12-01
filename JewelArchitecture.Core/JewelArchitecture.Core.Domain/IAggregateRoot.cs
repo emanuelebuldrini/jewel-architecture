@@ -9,7 +9,5 @@ namespace JewelArchitecture.Core.Domain
         ReadOnlyCollection<IDomainEvent> RaisedEvents { get; }
 
         void ClearEvents();
-
-        void Remove();
     }
 }
