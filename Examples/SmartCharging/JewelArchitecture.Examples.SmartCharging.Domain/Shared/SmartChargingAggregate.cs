@@ -2,7 +2,7 @@
 
 namespace JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
-public abstract record SmartChargingAggregate : AggregateRootBase
+public abstract record SmartChargingAggregate : AggregateRootBase<Guid>
 {
     private readonly Guid _id;
     private string _name;

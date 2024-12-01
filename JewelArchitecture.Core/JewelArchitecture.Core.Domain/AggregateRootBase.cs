@@ -1,20 +1,26 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
 
 namespace JewelArchitecture.Core.Domain;
 
-public abstract record AggregateRootBase
+public abstract record AggregateRootBase<TId>: IAggregateRoot<TId>
+    where TId : notnull
 {
-    public abstract Guid Id
+    protected List<IDomainEvent> Events { get; } = [];
+
+    public abstract TId Id
     {
         get;
-        init;       
+        init;
     }
 
     [JsonIgnore]
-    public List<IDomainEvent> RaisedEvents { get; } = [];
+    public ReadOnlyCollection<IDomainEvent> RaisedEvents => Events.AsReadOnly();
 
     public void ClearEvents()
     {
-        RaisedEvents.Clear();
+        Events.Clear();
     }
+
+    public abstract void Remove();  
 }

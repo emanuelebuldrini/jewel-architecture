@@ -9,10 +9,10 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared
     internal static class SmartChargingScenario
     {
         internal static void InitScenario(IServiceCollection serviceCollection,
-            IRepository<GroupAggregate> groupRepoMock,
-        IRepository<ChargeStationAggregate>? chargeStationRepoMock = null)
+            IRepository<GroupAggregate, Guid> groupRepoMock,
+        IRepository<ChargeStationAggregate, Guid>? chargeStationRepoMock = null)
         {
-            chargeStationRepoMock ??= new RepositoryMock<ChargeStationAggregate>();
+            chargeStationRepoMock ??= new RepositoryMock<ChargeStationAggregate, Guid>();
 
             serviceCollection.AddRepositoryMocks(groupRepoMock, chargeStationRepoMock);
         }

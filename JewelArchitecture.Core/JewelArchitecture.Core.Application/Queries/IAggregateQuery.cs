@@ -2,8 +2,9 @@
 
 namespace JewelArchitecture.Core.Application.Queries;
 
-public interface IAggregateQuery<TAggregate> : IQuery
-    where TAggregate : AggregateRootBase
+public interface IAggregateQuery<TAggregate, TId> : IQuery
+    where TAggregate : IAggregateRoot<TId>
+    where TId : notnull 
 {
-    public Guid AggregateId { get; }
+    public TId AggregateId { get; }
 }

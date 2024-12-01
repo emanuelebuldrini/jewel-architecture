@@ -4,19 +4,19 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared.DomainServices;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations.DomainExceptions;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Application.UseCases;
+using JewelArchitecture.Core.Application.CommandHandlers;
+using JewelArchitecture.Core.Application.Commands;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 
-public class CreateChargeStationCase(ILockService<ChargeStationAggregate> chargeStationLockService,
-    ILockService<GroupAggregate> groupLockService,
+public class CreateChargeStationCase(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
+    ILockService<GroupAggregate, Guid> groupLockService,
     IQueryHandler<GroupConnectorQuery, GroupConnectorResult> groupConnectorQueryHandler,
-    IAggregateCommandHandler<AddOrReplaceChargeStationCommand, ChargeStationAggregate> addChargeStationCommandHandler,
+    IAddOrReplaceAggregateCommandHandler<ChargeStationAggregate, Guid> addChargeStationCommandHandler,
     GroupCapacityValidatorService groupCapacityValidator) : IUseCase<CreateChargeStationInput, Guid>
 {
     public async Task<Guid> HandleAsync(CreateChargeStationInput input)
@@ -41,7 +41,7 @@ public class CreateChargeStationCase(ILockService<ChargeStationAggregate> charge
 
         var chargeStation = ChargeStationAggregate.Create(input.Name, input.Connectors,
             new GroupReference(groupId));
-        var command = new AddOrReplaceChargeStationCommand(chargeStation);
+        var command = new AddAggregateCommand<ChargeStationAggregate, Guid>(chargeStation);
 
         await addChargeStationCommandHandler.HandleAsync(command);
 

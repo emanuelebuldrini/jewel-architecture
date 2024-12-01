@@ -1,12 +1,12 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 using JewelArchitecture.Core.Application.Abstractions;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
+using JewelArchitecture.Core.Application.CommandHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.CommandHandlers;
 
-public class RemoveChargeStationCommandHandler(IRepository<ChargeStationAggregate> chargeStationRepo)
-    : IAggregateCommandHandler<RemoveChargeStationCommand, ChargeStationAggregate>
+public class RemoveChargeStationCommandHandler(IRepository<ChargeStationAggregate, Guid> chargeStationRepo)
+    : IAggregateCommandHandler<ChargeStationAggregate, Guid, RemoveChargeStationCommand>
 {
     public async Task HandleAsync(RemoveChargeStationCommand cmd)
     {

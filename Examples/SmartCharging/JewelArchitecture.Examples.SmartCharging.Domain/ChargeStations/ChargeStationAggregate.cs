@@ -55,7 +55,7 @@ public record ChargeStationAggregate : SmartChargingAggregate
             Group = group
         };
 
-        chargeStation.RaisedEvents.Add(new ChargeStationCreated(chargeStation.Id, chargeStation.Group));
+        chargeStation.Events.Add(new ChargeStationCreated(chargeStation.Id, chargeStation.Group));
 
         return chargeStation;
     }
@@ -64,18 +64,18 @@ public record ChargeStationAggregate : SmartChargingAggregate
     {
         var connector = Connectors.Single(s => s.Id == connectorId);
         connector.MaxCurrent = maxCurrent;
-        RaisedEvents.Add(new ChargeStationConnectorMaxCurrentUpdated(Id, connector.Id, connector.MaxCurrent));
+        Events.Add(new ChargeStationConnectorMaxCurrentUpdated(Id, connector.Id, connector.MaxCurrent));
     }
 
-    public void Remove(bool cascadeRemoval = false)
+    public override void Remove()
     {
         // Application layer processes the removal of the charge station.
-        RaisedEvents.Add(new ChargeStationRemoved(Id, Group));
+        Events.Add(new ChargeStationRemoved(Id, Group));
 
         // Related connectors are automatically removed since they are part of the charge station aggregate.
         foreach (var connector in _connectors)
         {
-            RaisedEvents.Add(new ChargeStationConnectorRemoved(Id, Group, connector.Id));
+            Events.Add(new ChargeStationConnectorRemoved(Id, Group, connector.Id));
         }
     }
 
@@ -89,7 +89,7 @@ public record ChargeStationAggregate : SmartChargingAggregate
         var connector = _connectors.Single(s => s.Id == connectorId);
         _connectors.Remove(connector);
 
-        RaisedEvents.Add(new ChargeStationConnectorRemoved(Id, Group, connector.Id));
+        Events.Add(new ChargeStationConnectorRemoved(Id, Group, connector.Id));
     }
 
     public void AddConnector(ConnectorId connectorId, AmpereUnit connectorMaxCurrent)
@@ -107,7 +107,7 @@ public record ChargeStationAggregate : SmartChargingAggregate
 
         _connectors.Add(newConnector);
 
-        RaisedEvents.Add(new ChargeStationConnectorAdded(Id, newConnector.Id, newConnector.MaxCurrent));
+        Events.Add(new ChargeStationConnectorAdded(Id, newConnector.Id, newConnector.MaxCurrent));
     }
 
     public void ChangeGroup(Guid groupId)
@@ -116,7 +116,7 @@ public record ChargeStationAggregate : SmartChargingAggregate
 
         _group = new GroupReference(groupId);
 
-        RaisedEvents.Add(new ChargeStationGroupChanged(Id,
+        Events.Add(new ChargeStationGroupChanged(Id,
             oldGroup!, NewGroup: _group));
     }
 }

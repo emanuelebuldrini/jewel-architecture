@@ -27,12 +27,17 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate>();
-            await slowGroupRepo.AddOrReplaceAsync(group1);
-            await slowGroupRepo.AddOrReplaceAsync(group2);
+            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate, Guid>(
+                addOrReplaceMsDelay:50,
+                // Set up a coordinator to control start write time.          
+                startWriteSignal: Synchronizer);
+            await slowGroupRepo.FastAddOrReplaceAsync(group1);
+            await slowGroupRepo.FastAddOrReplaceAsync(group2);
             var slowerChargeStationRepo = InMemoryRepositoryFactory
-                .GetSlowWriteInMemoryRepository<ChargeStationAggregate>(SlowerWriteMsDelay);
-            await slowerChargeStationRepo.AddOrReplaceAsync(chargeStation1);
+                .GetSlowWriteInMemoryRepository<ChargeStationAggregate, Guid>(SlowerWriteMsDelay,
+                // Set up a coordinator to control start write time.          
+                startWriteSignal: Synchronizer);
+            await slowerChargeStationRepo.FastAddOrReplaceAsync(chargeStation1);
 
             InitScenario(slowGroupRepo, slowerChargeStationRepo);
 
@@ -54,6 +59,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
                      CapacityAmps = 150
                  })
             );
+
+            await SimulateConcurrency();
 
             await Task.WhenAll(task1, task2);
 
@@ -80,10 +87,10 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate>();
+            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate, Guid>();
             await slowGroupRepo.FastAddOrReplaceAsync(group1);
             await slowGroupRepo.FastAddOrReplaceAsync(group2);
-            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate>(SlowerWriteMsDelay);
+            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate, Guid>(SlowerWriteMsDelay);
             await slowerChargeStationRepo.FastAddOrReplaceAsync(chargeStation1);
 
             InitScenario(slowGroupRepo, slowerChargeStationRepo);
@@ -136,12 +143,12 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate>(2,
+            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate, Guid>(2,
                 // Set up a coordinator to control start write time.          
                 startWriteSignal: Synchronizer);
             await slowGroupRepo.FastAddOrReplaceAsync(group1);
             await slowGroupRepo.FastAddOrReplaceAsync(group2);
-            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate>(SlowerWriteMsDelay,
+            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate, Guid>(SlowerWriteMsDelay,
                 startWriteSignal: Synchronizer);
             await slowerChargeStationRepo.FastAddOrReplaceAsync(chargeStation1);
 
@@ -186,11 +193,11 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
             var editedGroup1capacity = 150;
             var group1 = new GroupAggregate { Name = "Group 1", Capacity = new AmpereUnit(group1capacity) };
 
-            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate>(2,
+            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate, Guid>(2,
                 // Set up a coordinator to control start write time.          
                 startWriteSignal: Synchronizer);
             await slowGroupRepo.FastAddOrReplaceAsync(group1);
-            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate>(SlowerWriteMsDelay,
+            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate, Guid>(SlowerWriteMsDelay,
                 startWriteSignal: Synchronizer);
 
             InitScenario(slowGroupRepo, slowerChargeStationRepo);
@@ -238,10 +245,10 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
                 connectorNumber1, maxCurrentAmps1, group1);
 
             // Set up a coordinator to control start write time.
-            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate>(
+            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate, Guid>(
                 startWriteSignal: Synchronizer);
             await slowGroupRepo.FastAddOrReplaceAsync(group1);
-            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate>(
+            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate, Guid>(
                 addOrReplaceMsDelay: 350, // The add is much slower than the remove.
                 startWriteSignal: Synchronizer);
             await slowerChargeStationRepo.FastAddOrReplaceAsync(chargeStation1);
@@ -285,10 +292,10 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
                 connectorNumber1, maxCurrentAmps1, group1);
 
             // Set up a coordinator to control start write time.      
-            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate>(
+            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate, Guid>(
                 startWriteSignal: Synchronizer);
             await slowGroupRepo.FastAddOrReplaceAsync(group1);
-            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate>(
+            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate, Guid>(
                 removeMsDelay: 2,
                 addOrReplaceMsDelay: 300, // The add is much slower than the remove.
                 startWriteSignal: Synchronizer);
@@ -333,10 +340,10 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared.Integration
                  connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
             // Set up a coordinator to control start write time.      
-            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate>(
+            var slowGroupRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<GroupAggregate, Guid>(
                 startWriteSignal: Synchronizer);
             await slowGroupRepo.FastAddOrReplaceAsync(group1);
-            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate>(
+            var slowerChargeStationRepo = InMemoryRepositoryFactory.GetSlowWriteInMemoryRepository<ChargeStationAggregate, Guid>(
                 removeMsDelay: 1,
                 addOrReplaceMsDelay: 500, // The add is much slower than the remove.
                 startWriteSignal: Synchronizer);

@@ -1,15 +1,16 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations.DomainEvents;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Application.Events;
+using JewelArchitecture.Core.Application.CommandHandlers;
+using JewelArchitecture.Core.Application.Commands;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.EventHandlers;
 
 public class ChargeStationGroupChangedHandler(IQueryHandler<GroupByIdQuery, GroupAggregate> groupByIdQueryHandler,
-    ICommandHandler<AddOrReplaceGroupCommand> addOrReplaceGroupCommandHandler)
+     IAddOrReplaceAggregateCommandHandler<GroupAggregate, Guid> addOrReplaceGroupCommandHandler)
     : IEventHandler<ChargeStationGroupChanged>
 {
     public async Task HandleAsync(ChargeStationGroupChanged domainEvent)
@@ -18,12 +19,12 @@ public class ChargeStationGroupChangedHandler(IQueryHandler<GroupByIdQuery, Grou
         var oldGroup = await groupByIdQueryHandler.HandleAsync(new GroupByIdQuery(domainEvent.OldGroup.Id));
         oldGroup.ChargeStations.Remove(new ChargeStationReference(domainEvent.ChargeStationId));
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceGroupCommand(oldGroup));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(oldGroup));
 
         // Finally update the new group charge station reference.
         var newGroup = await groupByIdQueryHandler.HandleAsync(new GroupByIdQuery(domainEvent.NewGroup.Id));
         newGroup.ChargeStations.Add(new ChargeStationReference(domainEvent.ChargeStationId));
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceGroupCommand(newGroup));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(newGroup));
     }
 }

@@ -5,4 +5,4 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 
 public record AddConnectorCommand(ConnectorId ConnectorId, AmpereUnit ConnectorMaxCurrent, ChargeStationAggregate Aggregate)
-    : IAggregateCommand<ChargeStationAggregate>;
+    : IAggregateCommand<ChargeStationAggregate, Guid>;

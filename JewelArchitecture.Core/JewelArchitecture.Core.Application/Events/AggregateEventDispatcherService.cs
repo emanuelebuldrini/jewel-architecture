@@ -3,8 +3,8 @@ using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Core.Application;
 
-public class AggregateEventDispatcherService<TAggregate>(IEventDispatcher dispatcher)
-    where TAggregate : AggregateRootBase
+public class AggregateEventDispatcherService<TAggregate, TId>(IEventDispatcher dispatcher)
+    where TAggregate : IAggregateRoot<TId> where TId : notnull 
 {
     public async Task DispatchAggregateEventsAsync(TAggregate aggregate)
     {

@@ -5,7 +5,7 @@ using JewelArchitecture.Core.Application.QueryHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.QueryHandlers;
 
-public class ChargeStationByIdQueryHandler(IRepository<ChargeStationAggregate> chargeStationRepo)
+public class ChargeStationByIdQueryHandler(IRepository<ChargeStationAggregate, Guid> chargeStationRepo)
     : IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate>
 {
     public async Task<ChargeStationAggregate> HandleAsync(ChargeStationByIdQuery query)

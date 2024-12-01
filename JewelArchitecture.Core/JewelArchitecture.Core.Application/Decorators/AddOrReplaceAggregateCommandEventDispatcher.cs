@@ -4,14 +4,13 @@ using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Core.Application.Decorators;
 
-public class AggregateCommandEventDispatcher<TAggregate, TId, TCommand>(AggregateEventDispatcherService<TAggregate, TId> dispatcherService,
-    ICommandHandler<TCommand> decoratee)
-    : IAggregateCommandHandler<TAggregate, TId, TCommand>
+public class AddOrReplaceAggregateCommandEventDispatcher<TAggregate, TId>(AggregateEventDispatcherService<TAggregate, TId> dispatcherService,
+         AddOrReplaceAggregateCommandHandler<TAggregate, TId> decoratee)
+   : IAddOrReplaceAggregateCommandHandler<TAggregate, TId>
     where TAggregate : IAggregateRoot<TId>
-    where TCommand: IAggregateCommand<TAggregate, TId>
     where TId : notnull
 {
-    public async Task HandleAsync(TCommand cmd)
+    public async Task HandleAsync(AddAggregateCommand<TAggregate, TId> cmd)
     {
         await decoratee.HandleAsync(cmd);
 

@@ -3,8 +3,9 @@ using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Core.Test
 {
-    public class RepositoryMock<TAggregate>() : IRepository<TAggregate>
-        where TAggregate : AggregateRootBase
+    public class RepositoryMock<TAggregate, TId>() : IRepository<TAggregate, TId>
+        where TAggregate : AggregateRootBase<TId>
+        where TId : notnull 
     {
         private readonly List<TAggregate> _aggregates = [];
 
@@ -23,8 +24,8 @@ namespace JewelArchitecture.Core.Test
             }
         }
 
-        public Task<bool> ExistsAsync(Guid aggregateId) =>
-            Task.FromResult(_aggregates.Any(g => g.Id == aggregateId));
+        public Task<bool> ExistsAsync(TId aggregateId) =>
+            Task.FromResult(_aggregates.Any(g => g.Id.Equals(aggregateId)));
 
         public async Task AddOrReplaceAsync(TAggregate modifiedAggregate)
         {
@@ -39,14 +40,14 @@ namespace JewelArchitecture.Core.Test
             else
             {
                 // Replace logic
-                var existingAggregate = _aggregates.Single(s => s.Id == modifiedAggregate.Id);
+                var existingAggregate = _aggregates.Single(s => s.Id.Equals(modifiedAggregate.Id));
                 var existingAggregateIndex = _aggregates.IndexOf(existingAggregate);
                 _aggregates[existingAggregateIndex] = aggregateState;
             }
         }
 
-        public Task<TAggregate> GetSingleAsync(Guid aggregateId) =>
-            Task.FromResult(_aggregates.Single(s => s.Id == aggregateId) with { });
+        public Task<TAggregate> GetSingleAsync(TId aggregateId) =>
+            Task.FromResult(_aggregates.Single(s => s.Id.Equals(aggregateId)) with { });
 
         public Task RemoveAsync(TAggregate aggregate)
         {

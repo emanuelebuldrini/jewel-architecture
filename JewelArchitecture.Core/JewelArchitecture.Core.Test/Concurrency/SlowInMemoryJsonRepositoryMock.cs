@@ -4,10 +4,10 @@ using JewelArchitecture.Core.Infrastructure.Persistence;
 
 namespace JewelArchitecture.Core.Test.Concurrency
 {
-    public class SlowWriteInMemoryRepositoryMock<TAggregate>(InMemoryJsonRepository<TAggregate> inMemoryRepo,
+    public class SlowWriteInMemoryRepositoryMock<TAggregate, TId>(InMemoryJsonRepository<TAggregate, TId> inMemoryRepo,
         int addOrReplaceMsDelay, int removeMsDelay = 5, ConcurrencySynchronizer? startWriteSignal = null)
-        : IRepository<TAggregate>
-        where TAggregate : AggregateRootBase
+        : IRepository<TAggregate, TId>
+        where TAggregate : AggregateRootBase<TId> where TId : notnull 
     {
         public async Task FastAddOrReplaceAsync(TAggregate aggregate)
         {
@@ -26,12 +26,12 @@ namespace JewelArchitecture.Core.Test.Concurrency
             await inMemoryRepo.AddOrReplaceAsync(aggregate);
         }
 
-        public async Task<bool> ExistsAsync(Guid aggregateId)
+        public async Task<bool> ExistsAsync(TId aggregateId)
         {
             return await inMemoryRepo.ExistsAsync(aggregateId);
         }
 
-        public async Task<TAggregate> GetSingleAsync(Guid aggregateId)
+        public async Task<TAggregate> GetSingleAsync(TId aggregateId)
         {
             return await inMemoryRepo.GetSingleAsync(aggregateId);
         }

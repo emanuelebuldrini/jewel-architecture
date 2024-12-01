@@ -22,8 +22,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithOneConnector(
                connectorNumber1: 1, maxCurrentAmps1: 50, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -58,8 +58,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithOneConnector(
                connectorNumber1: 1, maxCurrentAmps1: 50, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -94,8 +94,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithOneConnector(
                connectorNumber1, maxCurrentAmps1, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -130,8 +130,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithOneConnector(
                connectorNumber1, maxCurrentAmps1, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -168,8 +168,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
             group1.ChargeStations.Add(new ChargeStationReference(chargeStation1.Id));
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -198,8 +198,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
             group1.ChargeStations.Add(new ChargeStationReference(chargeStation1.Id));
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -221,8 +221,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -258,8 +258,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -295,8 +295,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -321,8 +321,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 
@@ -354,8 +354,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.ChargeStations.Uni
             var chargeStation1 = AggregateFactory.CreateChargeStationWithTwoConnectors(
                 connectorNumber1, maxCurrentAmps1, connectorNumber2, maxCurrentAmps2, group1);
 
-            var groupRepoMock = new RepositoryMock<GroupAggregate>([group1]);
-            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate>([chargeStation1]);
+            var groupRepoMock = new RepositoryMock<GroupAggregate, Guid>([group1]);
+            var chargeStationRepoMock = new RepositoryMock<ChargeStationAggregate, Guid>([chargeStation1]);
             InitScenario(groupRepoMock, chargeStationRepoMock);
             var controller = ServiceProvider!.GetRequiredService<ChargeStationConnectorController>();
 

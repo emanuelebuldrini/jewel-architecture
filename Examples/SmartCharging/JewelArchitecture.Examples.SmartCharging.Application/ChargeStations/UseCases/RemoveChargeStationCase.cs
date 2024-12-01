@@ -2,19 +2,19 @@
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
 using JewelArchitecture.Core.Application.Abstractions;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Application.UseCases;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Core.Application.QueryHandlers;
-
+using JewelArchitecture.Core.Application.CommandHandlers;
+using JewelArchitecture.Core.Application.Commands;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 
-public sealed class RemoveChargeStationCase(ILockService<ChargeStationAggregate> chargeStationLockService,
-        ILockService<GroupAggregate> groupLockService,
+public sealed class RemoveChargeStationCase(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
+        ILockService<GroupAggregate, Guid> groupLockService,
         IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate> chargeStationByIdQueryHandler,
-        IAggregateCommandHandler<RemoveChargeStationCommand, ChargeStationAggregate> removeChargeStationCommandHandler)
+        IRemoveAggregateCommandHandler<ChargeStationAggregate, Guid> removeChargeStationCommandHandler)
        : NoOutputUseCase<RemoveChargeStationInput>
 {
     protected override async Task HandleNoOutputAsync(RemoveChargeStationInput input)
@@ -25,7 +25,7 @@ public sealed class RemoveChargeStationCase(ILockService<ChargeStationAggregate>
 
         var query = new ChargeStationByIdQuery(input.ChargeStationId);
         var chargeStation = await chargeStationByIdQueryHandler.HandleAsync(query);
-        var command = new RemoveChargeStationCommand(chargeStation);
+        var command = new RemoveAggregateCommand<ChargeStationAggregate, Guid>(chargeStation);
 
         await removeChargeStationCommandHandler.HandleAsync(command);
     }

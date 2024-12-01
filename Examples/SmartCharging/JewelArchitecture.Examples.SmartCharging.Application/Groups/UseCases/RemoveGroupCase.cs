@@ -1,5 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
+﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.UseCases.Input;
 using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Core.Application.Commands;
@@ -7,13 +6,14 @@ using JewelArchitecture.Core.Application.UseCases;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Core.Application.QueryHandlers;
+using JewelArchitecture.Core.Application.CommandHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.UseCases;
 
-public sealed class RemoveGroupCase(ILockService<ChargeStationAggregate> chargeStationLockService,
-        ILockService<GroupAggregate> groupLockService,
+public sealed class RemoveGroupCase(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
+        ILockService<GroupAggregate, Guid> groupLockService,
         IQueryHandler<GroupByIdQuery, GroupAggregate> groupByIdQueryHandler,
-        IAggregateCommandHandler<RemoveGroupCommand, GroupAggregate> removeGroupCommandHandler)
+        IRemoveAggregateCommandHandler<GroupAggregate, Guid> removeGroupCommandHandler)
        : NoOutputUseCase<RemoveGroupInput>
 {
     protected override async Task HandleNoOutputAsync(RemoveGroupInput input)
@@ -24,7 +24,7 @@ public sealed class RemoveGroupCase(ILockService<ChargeStationAggregate> chargeS
 
         var query = new GroupByIdQuery(input.GroupId);
         var group = await groupByIdQueryHandler.HandleAsync(query);
-        var command = new RemoveGroupCommand(group);
+        var command = new RemoveAggregateCommand<GroupAggregate, Guid>(group);
 
         await removeGroupCommandHandler.HandleAsync(command);
     }

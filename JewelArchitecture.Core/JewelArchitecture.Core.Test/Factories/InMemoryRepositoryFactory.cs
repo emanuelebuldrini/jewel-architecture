@@ -6,12 +6,12 @@ namespace JewelArchitecture.Core.Test.Factories
 {
     public static class InMemoryRepositoryFactory
     {
-        public static InMemoryJsonRepository<TAggregate> GetInMemoryRepository<TAggregate>()
-            where TAggregate : AggregateRootBase =>
-            new(new AggregateJsonSerializer<TAggregate>());
+        public static InMemoryJsonRepository<TAggregate, TId> GetInMemoryRepository<TAggregate, TId>()
+            where TAggregate : AggregateRootBase<TId> where TId : notnull  =>
+            new(new AggregateJsonSerializer<TAggregate, TId>());
 
-        public static SlowWriteInMemoryRepositoryMock<TAggregate> GetSlowWriteInMemoryRepository<TAggregate>(int addOrReplaceMsDelay = 200,
+        public static SlowWriteInMemoryRepositoryMock<TAggregate, TId> GetSlowWriteInMemoryRepository<TAggregate, TId>(int addOrReplaceMsDelay = 200,
             int removeMsDelay = 5, ConcurrencySynchronizer? startWriteSignal = null)
-          where TAggregate : AggregateRootBase => new(GetInMemoryRepository<TAggregate>(), addOrReplaceMsDelay, removeMsDelay, startWriteSignal);
+          where TAggregate : AggregateRootBase<TId> where TId : notnull  => new(GetInMemoryRepository<TAggregate, TId>(), addOrReplaceMsDelay, removeMsDelay, startWriteSignal);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace JewelArchitecture.Core.Application.Abstractions;
 
-public interface ILockService<TAggregate>
-    where TAggregate : AggregateRootBase
+public interface ILockService<TAggregate, TId>
+    where TAggregate : AggregateRootBase<TId> where TId : notnull 
 {
     Task<ILock> AcquireLockAsync();
 }

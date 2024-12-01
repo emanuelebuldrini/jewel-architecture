@@ -1,17 +1,17 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Queries;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Core.Application.QueryHandlers;
-using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Core.Application.Abstractions;
+using JewelArchitecture.Core.Application.CommandHandlers;
+using JewelArchitecture.Core.Application.Queries;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.ApplicationServices;
 
-public class ChargeStationConnectorService(ILockService<ChargeStationAggregate> chargeStationLockService,
+public class ChargeStationConnectorService(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
         IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate> chargeStationByIdQueryHandler,
-        IAggregateExistsQueryHandler<ChargeStationAggregate, AggregateExistsQuery<ChargeStationAggregate>> chargeStationExistsQueryHandler,
-        IAggregateCommandHandler<RemoveConnectorCommand, ChargeStationAggregate> removeConnectorCommandHandler
+        IAggregateExistsQueryHandler<ChargeStationAggregate, Guid, AggregateExistsQuery<ChargeStationAggregate, Guid>> chargeStationExistsQueryHandler,
+        IAggregateCommandHandler<ChargeStationAggregate, Guid, RemoveConnectorCommand<ChargeStationAggregate>> removeConnectorCommandHandler
 )
 {
     public async Task<ChargeStationConnectorEntity> GetSingleAsync(Guid chargeStationId, ConnectorId connectorId)
@@ -25,14 +25,14 @@ public class ChargeStationConnectorService(ILockService<ChargeStationAggregate> 
         using var chargeStationLock = await chargeStationLockService.AcquireLockAsync();
 
         var chargeStation = await GetChargeStation(chargeStationId);
-        var command = new RemoveConnectorCommand(chargeStation, connectorId);
+        var command = new RemoveConnectorCommand<ChargeStationAggregate>(chargeStation, connectorId);
 
         await removeConnectorCommandHandler.HandleAsync(command);
     }
 
     public async Task<bool> ExistsAsync(Guid chargeStationId, ConnectorId id)
     {
-        var query = new AggregateExistsQuery<ChargeStationAggregate>(chargeStationId);
+        var query = new AggregateExistsQuery<ChargeStationAggregate, Guid>(chargeStationId);
         if (!await chargeStationExistsQueryHandler.HandleAsync(query))
         {
             return false;

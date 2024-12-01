@@ -4,7 +4,9 @@ using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Core.Infrastructure.Persistence
 {
-    public class AggregateJsonSerializer<TAggregate> where TAggregate : AggregateRootBase
+    public class AggregateJsonSerializer<TAggregate, TId>
+        where TAggregate : IAggregateRoot<TId>
+        where TId : notnull 
     {
         public async Task<string> SerializeAsync(TAggregate aggregate)
         {

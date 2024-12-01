@@ -4,20 +4,21 @@ using System.Collections.Concurrent;
 
 namespace JewelArchitecture.Core.Infrastructure.Persistence
 {
-    public class InMemoryJsonRepository<TAggregate>(AggregateJsonSerializer<TAggregate> serializer)
-        : IRepository<TAggregate>
-        where TAggregate : AggregateRootBase
+    public class InMemoryJsonRepository<TAggregate, TId>(AggregateJsonSerializer<TAggregate, TId> serializer)
+        : IRepository<TAggregate, TId>
+        where TAggregate : IAggregateRoot<TId>
+        where TId : notnull 
     {
-        private readonly ConcurrentDictionary<Guid, string> _aggregateStore = new();
+        private readonly ConcurrentDictionary<TId, string> _aggregateStore = new();
 
         public async Task AddOrReplaceAsync(TAggregate aggregate)
         {
             _aggregateStore[aggregate.Id] = await serializer.SerializeAsync(aggregate);
         }
 
-        public Task<bool> ExistsAsync(Guid aggregateId) => Task.FromResult(_aggregateStore.ContainsKey(aggregateId));
+        public Task<bool> ExistsAsync(TId aggregateId) => Task.FromResult(_aggregateStore.ContainsKey(aggregateId));
 
-        public async Task<TAggregate> GetSingleAsync(Guid aggregateId) =>
+        public async Task<TAggregate> GetSingleAsync(TId aggregateId) =>
             await serializer.DeserializeAsync(_aggregateStore[aggregateId]);
 
         public Task RemoveAsync(TAggregate aggregate)
@@ -31,6 +32,6 @@ namespace JewelArchitecture.Core.Infrastructure.Persistence
             }
 
             return Task.CompletedTask;
-        }
+        }       
     }
 }

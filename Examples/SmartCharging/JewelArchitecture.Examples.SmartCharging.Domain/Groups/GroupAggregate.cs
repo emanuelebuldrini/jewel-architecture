@@ -17,7 +17,7 @@ public record GroupAggregate : SmartChargingAggregate
 
             if (isUpdate)
             {
-                RaisedEvents.Add(new GroupCapacityUpdated(Id, Capacity));
+                Events.Add(new GroupCapacityUpdated(Id, Capacity));
             }
         }
     }
@@ -26,15 +26,15 @@ public record GroupAggregate : SmartChargingAggregate
 
     private AmpereUnit? _capacity;
 
-    public void Remove()
+    public override void Remove()
     {
         // Let application layer remove the related charge stations since they cannot exist without a group.
         foreach (var chargeStationId in ChargeStations)
         {
-            RaisedEvents.Add(new ChargeStationCascadeRemoval(chargeStationId.Id));
+            Events.Add(new ChargeStationCascadeRemoval(chargeStationId.Id));
         }
 
         // Application layer processes the removal of the group.
-        RaisedEvents.Add(new GroupRemoved(Id));
+        Events.Add(new GroupRemoved(Id));
     }
 }

@@ -1,7 +1,6 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
 using JewelArchitecture.Core.Application.Abstractions;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
 using JewelArchitecture.Core.Application.UseCases;
@@ -10,13 +9,14 @@ using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations.DomainExcep
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared.DomainServices;
 using JewelArchitecture.Core.Application.QueryHandlers;
+using JewelArchitecture.Core.Application.CommandHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 
-public sealed class ChangeChargeStationGroupCase(ILockService<ChargeStationAggregate> chargeStationLockService,
-        ILockService<GroupAggregate> groupLockService,
+public sealed class ChangeChargeStationGroupCase(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
+        ILockService<GroupAggregate, Guid> groupLockService,
         IQueryHandler<ChangeGroupChargeStationConnectorQuery, GroupChargeStationConnectorResult> groupChargeStationConnectorQueryHandler,
-        IAggregateCommandHandler<ChangeGroupCommand, ChargeStationAggregate> changeGroupCommandHandler,
+        IAggregateCommandHandler<ChargeStationAggregate, Guid, ChangeGroupCommand> changeGroupCommandHandler,
         GroupCapacityValidatorService groupCapacityValidator) : NoOutputUseCase<ChangeChargeStationGroupInput>
 {
     protected override async Task HandleNoOutputAsync(ChangeChargeStationGroupInput input)

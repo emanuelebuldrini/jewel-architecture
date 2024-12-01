@@ -2,10 +2,12 @@
 
 namespace JewelArchitecture.Core.Application.Abstractions;
 
-public interface IRepository<TAggregate> where TAggregate : AggregateRootBase
+public interface IRepository<TAggregate, TId> 
+    where TAggregate : IAggregateRoot<TId> 
+    where TId : notnull
 {
     public Task AddOrReplaceAsync(TAggregate aggregate);
-    public Task<TAggregate> GetSingleAsync(Guid aggregateId);
-    public Task<bool> ExistsAsync(Guid aggregateId);
+    public Task<TAggregate> GetSingleAsync(TId aggregateId);
+    public Task<bool> ExistsAsync(TId aggregateId);
     public Task RemoveAsync(TAggregate aggregate);
 }

@@ -1,8 +1,10 @@
 ﻿using JewelArchitecture.Core.Application.Commands;
+using JewelArchitecture.Core.Domain;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.Commands;
 
-public record UpdateGroupCapacityCommand(AmpereUnit GroupCapacity, GroupAggregate Aggregate)
-    : IAggregateCommand<GroupAggregate>;
+public record UpdateGroupCapacityCommand<TAggregate>(AmpereUnit GroupCapacity, TAggregate Aggregate)
+    : IAggregateCommand<TAggregate, Guid>
+    where TAggregate : GroupAggregate, IAggregateRoot<Guid>;

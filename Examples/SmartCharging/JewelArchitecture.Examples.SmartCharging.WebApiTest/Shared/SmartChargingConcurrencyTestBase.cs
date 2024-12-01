@@ -12,8 +12,8 @@ namespace JewelArchitecture.Examples.SmartCharging.WebApiTest.Shared
     {
         protected override ServiceCollection GetServiceCollection() 
             => ServiceCollectionFactory.GetSmartCharging();
-        protected void InitScenario(IRepository<GroupAggregate> groupRepoMock,
-        IRepository<ChargeStationAggregate>? chargeStationRepoMock = null)
+        protected void InitScenario(IRepository<GroupAggregate, Guid> groupRepoMock,
+        IRepository<ChargeStationAggregate, Guid>? chargeStationRepoMock = null)
         {
             SmartChargingScenario.InitScenario(_serviceCollection, groupRepoMock, chargeStationRepoMock);
 

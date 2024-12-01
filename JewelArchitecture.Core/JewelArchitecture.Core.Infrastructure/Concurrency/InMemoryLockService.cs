@@ -3,8 +3,8 @@ using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Core.Infrastructure.Concurrency
 {
-    public class InMemoryLockService<TAggregate>(int msTimeout = 20000) : ILockService<TAggregate>, IDisposable
-        where TAggregate : AggregateRootBase
+    public class InMemoryLockService<TAggregate, TId>(int msTimeout = 20000) : ILockService<TAggregate, TId>, IDisposable
+        where TAggregate : AggregateRootBase<TId> where TId : notnull 
     {
         private readonly SemaphoreSlim _semaphore = new(1, 1);
 

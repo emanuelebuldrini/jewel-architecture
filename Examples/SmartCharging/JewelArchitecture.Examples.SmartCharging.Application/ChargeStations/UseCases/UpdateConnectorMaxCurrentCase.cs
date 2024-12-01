@@ -8,16 +8,16 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCas
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Application.UseCases;
 using JewelArchitecture.Core.Application.QueryHandlers;
+using JewelArchitecture.Core.Application.CommandHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 
-public sealed class UpdateConnectorMaxCurrentCase(ILockService<GroupAggregate> groupLockService,
-    ILockService<ChargeStationAggregate> chargeStationLockService,
+public sealed class UpdateConnectorMaxCurrentCase(ILockService<GroupAggregate, Guid> groupLockService,
+    ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
     IQueryHandler<GroupChargeStationConnectorQuery, GroupChargeStationConnectorResult> groupChargeStationConnectorQueryHandler,
-    IAggregateCommandHandler<UpdateMaxCurrentCommand, ChargeStationAggregate> updateMaxCurrentCommandHandler,
+    IAggregateCommandHandler<ChargeStationAggregate, Guid, UpdateMaxCurrentCommand> updateMaxCurrentCommandHandler,
     GroupCapacityValidatorService groupCapacityValidator) : NoOutputUseCase<UpdateConnectorMaxCurrentInput>
 {
     protected override async Task HandleNoOutputAsync(UpdateConnectorMaxCurrentInput input)

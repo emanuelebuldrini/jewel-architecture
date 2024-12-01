@@ -8,16 +8,16 @@ using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCas
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Application.UseCases;
 using JewelArchitecture.Core.Application.QueryHandlers;
+using JewelArchitecture.Core.Application.CommandHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 
-public class CreateConnectorCase(ILockService<GroupAggregate> groupLockService,
-    ILockService<ChargeStationAggregate> chargeStationLockService,
+public class CreateConnectorCase(ILockService<GroupAggregate, Guid> groupLockService,
+    ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
     IQueryHandler<GroupChargeStationConnectorQuery, GroupChargeStationConnectorResult> groupChargeStationConnectorQueryHandler,
-    IAggregateCommandHandler<AddConnectorCommand, ChargeStationAggregate> addConnectorCommandHandler,
+    IAggregateCommandHandler<ChargeStationAggregate, Guid, AddConnectorCommand> addConnectorCommandHandler,
     GroupCapacityValidatorService groupCapacityValidator) : NoOutputUseCase<CreateConnectorInput>
 {
     protected override async Task HandleNoOutputAsync(CreateConnectorInput input)

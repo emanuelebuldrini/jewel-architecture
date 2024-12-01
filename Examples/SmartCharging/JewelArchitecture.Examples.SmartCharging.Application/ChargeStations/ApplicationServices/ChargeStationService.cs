@@ -1,23 +1,23 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
+﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Dto;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Queries;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Core.Application.Abstractions;
+using JewelArchitecture.Core.Application.CommandHandlers;
+using JewelArchitecture.Core.Application.Commands;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.ApplicationServices;
 
-public class ChargeStationService(ILockService<ChargeStationAggregate> chargeStationLockService,
-    IAggregateExistsQueryHandler<ChargeStationAggregate, AggregateExistsQuery<ChargeStationAggregate>> chargeStationExistsQueryHandler,
+public class ChargeStationService(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
+    IAggregateExistsQueryHandler<ChargeStationAggregate, Guid, AggregateExistsQuery<ChargeStationAggregate, Guid>> chargeStationExistsQueryHandler,
     IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate> chargeStationByIdQueryHandler,
-    ICommandHandler<AddOrReplaceChargeStationCommand> addOrReplaceChargeStationCommandHandler
+    IAddOrReplaceAggregateCommandHandler<ChargeStationAggregate,Guid> addOrReplaceChargeStationCommandHandler
 )
 {
     public async Task<bool> ExistsAsync(Guid id)
     {
-        var query = new AggregateExistsQuery<ChargeStationAggregate>(id);
+        var query = new AggregateExistsQuery<ChargeStationAggregate, Guid>(id);
         return await chargeStationExistsQueryHandler.HandleAsync(query);
     }
 
@@ -34,6 +34,6 @@ public class ChargeStationService(ILockService<ChargeStationAggregate> chargeSta
 
         chargeStation.Name = editDto.Name;
 
-        await addOrReplaceChargeStationCommandHandler.HandleAsync(new AddOrReplaceChargeStationCommand(chargeStation));
+        await addOrReplaceChargeStationCommandHandler.HandleAsync(new AddAggregateCommand<ChargeStationAggregate, Guid>(chargeStation));
     }
 }

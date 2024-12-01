@@ -5,7 +5,7 @@ using JewelArchitecture.Core.Application.QueryHandlers;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.QueryHandlers;
 
-public class GroupByIdQueryHandler(IRepository<GroupAggregate> groupRepo)
+public class GroupByIdQueryHandler(IRepository<GroupAggregate, Guid> groupRepo)
     : IQueryHandler<GroupByIdQuery, GroupAggregate>
 {
     public async Task<GroupAggregate> HandleAsync(GroupByIdQuery query)

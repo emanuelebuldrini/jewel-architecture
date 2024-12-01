@@ -3,7 +3,8 @@ using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Core.Application.QueryHandlers;
 
-public interface IAggregateExistsQueryHandler<TAggregate, TQuery> :
-    IAggregateQueryHandler<TAggregate, TQuery, bool>
-    where TQuery : IAggregateQuery<TAggregate>
-    where TAggregate : AggregateRootBase;
+public interface IAggregateExistsQueryHandler<TAggregate, TId, TQuery> :
+    IAggregateQueryHandler<TAggregate, TId, TQuery, bool>
+    where TQuery : IAggregateQuery<TAggregate,TId>
+    where TAggregate : IAggregateRoot<TId>
+    where TId : notnull ;

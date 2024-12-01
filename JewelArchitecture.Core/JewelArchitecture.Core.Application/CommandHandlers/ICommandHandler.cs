@@ -1,4 +1,6 @@
-﻿namespace JewelArchitecture.Core.Application.Commands;
+﻿using JewelArchitecture.Core.Application.Commands;
+
+namespace JewelArchitecture.Core.Application.CommandHandlers;
 
 public interface ICommandHandler<TCommand>
     where TCommand : ICommand
