@@ -5,6 +5,6 @@ namespace JewelArchitecture.Core.Application.QueryHandlers;
 
 public interface IAggregateExistsQueryHandler<TAggregate, TId, TQuery> :
     IAggregateQueryHandler<TAggregate, TId, TQuery, bool>
-    where TQuery : IAggregateQuery<TAggregate,TId>
+    where TQuery : AggregateExistsQuery<TAggregate, TId>, IAggregateQuery<TAggregate, TId>
     where TAggregate : IAggregateRoot<TId>
-    where TId : notnull ;
+    where TId : notnull;

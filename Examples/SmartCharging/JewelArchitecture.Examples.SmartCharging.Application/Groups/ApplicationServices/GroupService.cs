@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
-using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
+using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Application.Queries;
@@ -11,7 +11,7 @@ using JewelArchitecture.Core.Application.CommandHandlers;
 namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.ApplicationServices;
 
 public class GroupService(ILockService<GroupAggregate, Guid> groupLockService,
-        IQueryHandler<GroupByIdQuery, GroupAggregate> groupByIdQueryHandler,
+        IAggregateByIdQueryHandler<GroupAggregate, Guid, AggregateByIdQuery<GroupAggregate, Guid>> groupByIdQueryHandler,
         IAggregateExistsQueryHandler<GroupAggregate, Guid, AggregateExistsQuery<GroupAggregate, Guid>> groupExistsQueryHandler,
         IAddOrReplaceAggregateCommandHandler<GroupAggregate, Guid> addOrReplaceGroupCommandHandler)
 {
@@ -36,7 +36,7 @@ public class GroupService(ILockService<GroupAggregate, Guid> groupLockService,
 
     public async Task<GroupAggregate> GetSingleAsync(Guid groupId)
     {
-        return await groupByIdQueryHandler.HandleAsync(new GroupByIdQuery(groupId));
+        return await groupByIdQueryHandler.HandleAsync(new AggregateByIdQuery<GroupAggregate,Guid>(groupId));
     }
 
     public async Task EditAsync(Guid id, GroupEditDto dto)

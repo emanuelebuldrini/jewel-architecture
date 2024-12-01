@@ -1,22 +1,21 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Queries;
+using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Core.Application.CommandHandlers;
-using JewelArchitecture.Core.Application.Queries;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.ApplicationServices;
 
 public class ChargeStationConnectorService(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
-        IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate> chargeStationByIdQueryHandler,
+        IAggregateByIdQueryHandler<ChargeStationAggregate, Guid, AggregateByIdQuery<ChargeStationAggregate, Guid>> chargeStationByIdQueryHandler,
         IAggregateExistsQueryHandler<ChargeStationAggregate, Guid, AggregateExistsQuery<ChargeStationAggregate, Guid>> chargeStationExistsQueryHandler,
         IAggregateCommandHandler<ChargeStationAggregate, Guid, RemoveConnectorCommand<ChargeStationAggregate>> removeConnectorCommandHandler
 )
 {
     public async Task<ChargeStationConnectorEntity> GetSingleAsync(Guid chargeStationId, ConnectorId connectorId)
     {
-        var chargeStation = await chargeStationByIdQueryHandler.HandleAsync(new ChargeStationByIdQuery(chargeStationId));
+        var chargeStation = await chargeStationByIdQueryHandler.HandleAsync(new AggregateByIdQuery<ChargeStationAggregate, Guid>(chargeStationId));
         return chargeStation.Connectors.Single(c => c.Id == connectorId);
     }
 
@@ -44,6 +43,6 @@ public class ChargeStationConnectorService(ILockService<ChargeStationAggregate, 
 
     private async Task<ChargeStationAggregate> GetChargeStation(Guid chargeStationId)
     {
-        return await chargeStationByIdQueryHandler.HandleAsync(new ChargeStationByIdQuery(chargeStationId));
+        return await chargeStationByIdQueryHandler.HandleAsync(new AggregateByIdQuery<ChargeStationAggregate, Guid>(chargeStationId));
     }
 }

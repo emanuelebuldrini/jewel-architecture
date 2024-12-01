@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Examples.SmartCharging.Application.Groups.Queries;
+﻿using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.UseCases.Input;
 using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Core.Application.Commands;
@@ -12,7 +12,7 @@ namespace JewelArchitecture.Examples.SmartCharging.Application.Groups.UseCases;
 
 public sealed class RemoveGroupCase(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
         ILockService<GroupAggregate, Guid> groupLockService,
-        IQueryHandler<GroupByIdQuery, GroupAggregate> groupByIdQueryHandler,
+         IAggregateByIdQueryHandler<GroupAggregate, Guid, AggregateByIdQuery<GroupAggregate, Guid>> groupByIdQueryHandler,
         IRemoveAggregateCommandHandler<GroupAggregate, Guid> removeGroupCommandHandler)
        : NoOutputUseCase<RemoveGroupInput>
 {
@@ -22,7 +22,7 @@ public sealed class RemoveGroupCase(ILockService<ChargeStationAggregate, Guid> c
         // It is required to delete charge stations in cascade (managed in the handler).
         using var chargeStationLock = await chargeStationLockService.AcquireLockAsync();
 
-        var query = new GroupByIdQuery(input.GroupId);
+        var query = new AggregateByIdQuery<GroupAggregate,Guid>(input.GroupId);
         var group = await groupByIdQueryHandler.HandleAsync(query);
         var command = new RemoveAggregateCommand<GroupAggregate, Guid>(group);
 

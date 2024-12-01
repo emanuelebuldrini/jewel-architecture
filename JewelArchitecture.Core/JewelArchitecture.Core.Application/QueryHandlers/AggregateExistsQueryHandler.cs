@@ -8,7 +8,7 @@ public class AggregateExistsQueryHandler<TAggregate, TId, TQuery>(IRepository<TA
         : IAggregateExistsQueryHandler<TAggregate, TId, TQuery>
         where TAggregate : IAggregateRoot<TId>
         where TId : notnull
-        where TQuery : IAggregateQuery<TAggregate, TId>
+        where TQuery : AggregateExistsQuery<TAggregate, TId>, IAggregateQuery<TAggregate, TId>
 {
     public async Task<bool> HandleAsync(TQuery query)
     {

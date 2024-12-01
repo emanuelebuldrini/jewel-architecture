@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;
-using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Queries;
+using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases.Input;
 using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Core.Application.UseCases;
@@ -8,12 +8,13 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Application.CommandHandlers;
 using JewelArchitecture.Core.Application.Commands;
+using JewelArchitecture.Core.Application.Queries;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.UseCases;
 
 public sealed class RemoveChargeStationCase(ILockService<ChargeStationAggregate, Guid> chargeStationLockService,
         ILockService<GroupAggregate, Guid> groupLockService,
-        IQueryHandler<ChargeStationByIdQuery, ChargeStationAggregate> chargeStationByIdQueryHandler,
+        IAggregateByIdQueryHandler<ChargeStationAggregate, Guid, AggregateByIdQuery<ChargeStationAggregate, Guid>> chargeStationByIdQueryHandler,
         IRemoveAggregateCommandHandler<ChargeStationAggregate, Guid> removeChargeStationCommandHandler)
        : NoOutputUseCase<RemoveChargeStationInput>
 {
@@ -23,7 +24,7 @@ public sealed class RemoveChargeStationCase(ILockService<ChargeStationAggregate,
         // It is required to update the group reference as well (managed in the handler).
         using var groupLock = await groupLockService.AcquireLockAsync();
 
-        var query = new ChargeStationByIdQuery(input.ChargeStationId);
+        var query = new AggregateByIdQuery<ChargeStationAggregate, Guid>(input.ChargeStationId);
         var chargeStation = await chargeStationByIdQueryHandler.HandleAsync(query);
         var command = new RemoveAggregateCommand<ChargeStationAggregate, Guid>(chargeStation);
 
