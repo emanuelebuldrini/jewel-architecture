@@ -1,6 +1,7 @@
 # Jewel Architecture
-Jewel Architecture is a fusion of DDD, CQRS, and Clean Architecture—a pattern that leverages their individual strengths to create scalable, maintainable, and valuable systems.
-I call it Jewel Architecture because it organizes your system into multifaceted, interchangeable components, creating a highly valuable and mantainable structure—like a finely cut gem.
+Jewel Architecture is a fusion of DDD, CQRS, and Clean Architecture—a pattern that leverages their individual strengths to **create scalable, maintainable, and valuable systems.**
+I call it Jewel Architecture because it organizes your system into multifaceted, **interchangeable components**, creating a highly valuable and mantainable structure—like a finely cut gem.
+Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pattern: this implementation includes buffering and dispatching of aggregate events to **preserve the domain logic's purity** while ensuring consistency in persistence and event publishing.
 
 ## Foundation Principles
 **1. The Domain is Central:** It is self-contained and free from dependencies.
@@ -33,11 +34,11 @@ The solutions use an aggregate-based folder structure and follows a clean archit
 ## Customization
 - If you need to implement **cross-cutting concerns** like logging, auditing, exceptions handling: Decorators for Commands, Queries or Use Cases are a clean and flexible way to manage these concerns.
 
-- If you need to go **full async with CQRS**: It is enough to write Commands and Queries in a queue and then move the handlers in a separate background process or dedicated worker that processes them asynchronously.
+- If you need to go **full async with CQRS**: It is enough to write Commands in a queue and then move the handlers in a separate background process or dedicated worker that processes them asynchronously. Also, queries can go full async as well, if you expect long time processing. That would require a response location, like an endpoind dedicated for polling the result or a push notification mechanism.
 
-- If you need to manage **domain events** in a loosely coupled way: You can publish them in a message bus and let the subscribers handle them.
+- If you need to manage **domain events** in a **loosely coupled** and persistent way: You can publish them in a message bus and let the subscribers handle them. Therefore, in that case consider replacing the in-memory event dispatcher with a Pub/Sub external dependency and move the domain event handlers to specific subscriber components. 
 
-- If you need to add persistent storage or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
+- If you need to add persistent storage, transactional support or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
 
 ## Smart Charging Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine
@@ -98,6 +99,6 @@ Feel free to join the conversation in the **[Discussions](https://github.com/ema
 
 - **Email:** <a href="mailto:jewelarchitecture.feedback@gmail.com">jewelarchitecture.feedback@gmail.com</a>
 
-I value every contribution and look forward to engaging with the software engineering community! 
+If you like what I'm doing, consider watching and starring the repository to stay updated on the latest improvements. It also helps make the project more discoverable to the community. I value every contribution and look forward to engaging with the software engineering community! 
 
 
