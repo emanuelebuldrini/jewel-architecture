@@ -1,7 +1,7 @@
 # Jewel Architecture
 Jewel Architecture is a fusion of DDD, CQRS, and Clean Architecture—a pattern that leverages their individual strengths to create scalable, maintainable, and valuable systems.
 I call it Jewel Architecture because it organizes your system into multifaceted, interchangeable components, creating a highly valuable and mantainable structure—like a finely cut gem.
-This repository contains solutions structured using the Jewel Architecture, like for example a simplified Smart Charging domain.
+
 ## Foundation Principles
 **1. The Domain is Central:** It is self-contained and free from dependencies.
 
@@ -14,8 +14,32 @@ This repository contains solutions structured using the Jewel Architecture, like
 **5. Cross-Cutting Concerns are Extensible:** Decorators are a clean and flexible way to manage these concerns.
 
 **6. Focused Interaction:** The application layer exposes Use Cases or Services, offering clear entry points for the interface layer.
+  
+## Examples
+This repository contains solutions structured using the Jewel Architecture, like for example a simplified Smart Charging domain.
+The examples use the solution JewelArchitecture.Core as a base to implement the specific domain logic. The example projects mirror the structure of the core with the 4 layers: Application, Domain, Interface and an optional Infrastructure level.
 
-## Smart Charging Example Prerequisites
+## Solution Structure
+The solutions use an aggregate-based folder structure and follows a clean architecture, with the following key layers:
+
+**- Application Layer:** Contains use cases, services and business logic.
+
+**- Domain Layer:** Defines entities, aggregates, value objects, invariants and domain logic.
+
+**- Infrastructure Layer:** Optional infrastructure components (in-memory database used here).
+
+**- Interface Layer:** ASP.NET Core Web API exposing application endpoints.
+
+## Customization
+- If you need to implement **cross-cutting concerns** like logging, auditing, exceptions handling: Decorators for Commands, Queries or Use Cases are a clean and flexible way to manage these concerns.
+
+- If you need to go **full async with CQRS**: It is enough to write Commands and Queries in a queue and then move the handlers in a separate background process or dedicated worker that processes them asynchronously.
+
+- If you need to manage **domain events** in a loosely coupled way: You can publish them in a message bus and let the subscribers handle them.
+
+- If you need to add persistent storage or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
+
+## Smart Charging Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine
   
 It is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for API documentation and uses an in-memory database, so no external dependencies are required.
@@ -51,30 +75,15 @@ To run tests for the application, use:
 ```bash
 dotnet test
 ```
-### 6. Solution Structure
-This solution uses an aggregate-based folder structure and follows a clean architecture, with the following key layers:
 
-- Application Layer: Contains use cases, services and business logic.
-- Domain Layer: Defines entities, aggregates, value objects, invariants and domain logic.
-- Infrastructure Layer: Optional infrastructure components (in-memory database used here).
-- Interface Layer: ASP.NET Core Web API exposing application endpoints.
-### 7. Customization
-If you need to implement cross-cutting concerns like logging, auditing, exceptions handling: Decorators for Commands, Queries or Use Cases are a clean and flexible way to manage these concerns.
 
-If you need to go full async with CQRS: It is enough to write Commands and Queries in a queue and then move the handlers in a separate background process or dedicated worker that processes them asynchronously.
-
-Also, if you need to manage Domain Events in a loosely coupled way: You can publish them in a message bus and let the subscribers handle them.
-
-If you need to add persistent storage or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
-
-### 8. About This Project
+## About This Project
 
 This project is an exploration of a software architecture that is suitable to tackle complex problems and challenges of the modern world, created during my own time using personal resources. It’s an opportunity to share ideas and contribute to the broader software engineering community. 
 
 While this project reflects my passion for architecture and design, it is entirely separate from my professional work and is not affiliated with or endorsed by any employer.
 
-
-### 9. 💬 Share Your Feedback
+## 💬 Share Your Feedback
 
 Thank you for exploring **Jewel Architecture**! Your thoughts, suggestions, and ideas are invaluable in shaping this approach. Whether you’re trying it out, have questions, or want to propose improvements, I’d love to hear from you.
 
@@ -85,6 +94,10 @@ Feel free to join the conversation in the **[Discussions](https://github.com/ema
 - 🧪 Discuss real-world scenarios or use cases where this architecture might shine.
 - ❓ Ask questions if you’re curious or need clarification.
 
-I value every contribution and look forward to engaging with the software engineering community. 
+  Furthermore, if you have suggestions, questions, or issues and prefer not to use GitHub Discussions, feel free to reach out to me directly:
+
+- **Email:** <a href="mailto:jewelarchitecture.feedback@gmail.com">jewelarchitecture.feedback@gmail.com</a>
+
+I value every contribution and look forward to engaging with the software engineering community! 
 
 
