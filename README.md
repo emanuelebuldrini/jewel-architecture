@@ -1,6 +1,6 @@
 # Jewel Architecture
 Jewel Architecture is a fusion of DDD, CQRS, and Clean Architecture—a pattern that leverages their individual strengths to **create scalable, maintainable, and valuable systems.**
-I call it Jewel Architecture because it organizes your system into multifaceted, **interchangeable components**, creating a highly valuable and mantainable structure—like a finely cut gem.
+I call it Jewel Architecture because it organizes your system into multifaceted, interchangeable components, creating a highly valuable and mantainable structure—like a finely cut gem.
 Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pattern: this implementation includes buffering and dispatching of aggregate events to **preserve the domain logic's purity** while ensuring consistency in persistence and event publishing.
 
 ## Foundation Principles
@@ -18,7 +18,7 @@ Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pa
   
 ## Examples
 This repository contains solutions structured using the Jewel Architecture, like for example a simplified Smart Charging domain.
-The examples use the solution JewelArchitecture.Core as a base to implement the specific domain logic. The example projects mirror the structure of the core with the 4 layers: Application, Domain, Interface and an optional Infrastructure level.
+The examples use the solution **JewelArchitecture.Core as a base** to implement the specific domain logic. The example projects mirror the structure of the core with the 4 layers: Application, Domain, Interface and an optional Infrastructure level.
 
 ## Solution Structure
 The solutions use an aggregate-based folder structure and follows a clean architecture, with the following key layers:
