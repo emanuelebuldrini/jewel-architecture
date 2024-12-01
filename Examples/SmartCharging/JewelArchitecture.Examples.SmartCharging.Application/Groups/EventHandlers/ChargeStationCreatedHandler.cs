@@ -18,6 +18,6 @@ public class ChargeStationCreatedHandler(IAggregateByIdQueryHandler<GroupAggrega
         var group = await groupByIdQueryHandler.HandleAsync(new AggregateByIdQuery<GroupAggregate, Guid>(domainEvent.Group.Id));
         group.ChargeStations.Add(new ChargeStationReference(domainEvent.ChargeStationId));
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(group));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceAggregateCommand<GroupAggregate, Guid>(group));
     }
 }

@@ -9,6 +9,6 @@ public class AddOrReplaceAggregateCommandHandler<TAggregate, TId>(IRepository<TA
     where TAggregate : IAggregateRoot<TId>
     where TId : notnull
 {
-    public async Task HandleAsync(AddAggregateCommand<TAggregate, TId> cmd) =>
+    public async Task HandleAsync(AddOrReplaceAggregateCommand<TAggregate, TId> cmd) =>
         await repo.AddOrReplaceAsync(cmd.Aggregate);
 }

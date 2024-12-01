@@ -19,6 +19,6 @@ public class ChargeStationRemovedHandler( IAggregateByIdQueryHandler<GroupAggreg
         // Must remove the related group charge station reference.            
         group.ChargeStations.Remove(new ChargeStationReference(domainEvent.ChargeStationId));
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(group));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceAggregateCommand<GroupAggregate, Guid>(group));
     }
 }

@@ -10,7 +10,7 @@ public class AddOrReplaceAggregateCommandEventDispatcher<TAggregate, TId>(Aggreg
     where TAggregate : IAggregateRoot<TId>
     where TId : notnull
 {
-    public async Task HandleAsync(AddAggregateCommand<TAggregate, TId> cmd)
+    public async Task HandleAsync(AddOrReplaceAggregateCommand<TAggregate, TId> cmd)
     {
         await decoratee.HandleAsync(cmd);
 

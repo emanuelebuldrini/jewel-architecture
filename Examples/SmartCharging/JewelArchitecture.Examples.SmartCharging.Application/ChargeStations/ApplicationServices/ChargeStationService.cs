@@ -34,6 +34,6 @@ public class ChargeStationService(ILockService<ChargeStationAggregate, Guid> cha
 
         chargeStation.Name = editDto.Name;
 
-        await addOrReplaceChargeStationCommandHandler.HandleAsync(new AddAggregateCommand<ChargeStationAggregate, Guid>(chargeStation));
+        await addOrReplaceChargeStationCommandHandler.HandleAsync(new AddOrReplaceAggregateCommand<ChargeStationAggregate, Guid>(chargeStation));
     }
 }

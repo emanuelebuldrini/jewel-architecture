@@ -4,6 +4,6 @@ using JewelArchitecture.Core.Domain;
 namespace JewelArchitecture.Core.Application.CommandHandlers;
 
 public interface IAddOrReplaceAggregateCommandHandler<TAggregate, TId>
-    : IAggregateCommandHandler<TAggregate, TId, AddAggregateCommand<TAggregate, TId>>
+    : IAggregateCommandHandler<TAggregate, TId, AddOrReplaceAggregateCommand<TAggregate, TId>>
     where TAggregate : IAggregateRoot<TId>
     where TId : notnull;

@@ -41,7 +41,7 @@ public class CreateChargeStationCase(ILockService<ChargeStationAggregate, Guid> 
 
         var chargeStation = ChargeStationAggregate.Create(input.Name, input.Connectors,
             new GroupReference(groupId));
-        var command = new AddAggregateCommand<ChargeStationAggregate, Guid>(chargeStation);
+        var command = new AddOrReplaceAggregateCommand<ChargeStationAggregate, Guid>(chargeStation);
 
         await addChargeStationCommandHandler.HandleAsync(command);
 

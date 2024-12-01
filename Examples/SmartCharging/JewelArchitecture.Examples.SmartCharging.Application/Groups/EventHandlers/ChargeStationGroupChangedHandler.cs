@@ -18,12 +18,12 @@ public class ChargeStationGroupChangedHandler( IAggregateByIdQueryHandler<GroupA
         var oldGroup = await groupByIdQueryHandler.HandleAsync(new AggregateByIdQuery<GroupAggregate,Guid>(domainEvent.OldGroup.Id));
         oldGroup.ChargeStations.Remove(new ChargeStationReference(domainEvent.ChargeStationId));
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(oldGroup));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceAggregateCommand<GroupAggregate, Guid>(oldGroup));
 
         // Finally update the new group charge station reference.
         var newGroup = await groupByIdQueryHandler.HandleAsync(new AggregateByIdQuery<GroupAggregate,Guid>(domainEvent.NewGroup.Id));
         newGroup.ChargeStations.Add(new ChargeStationReference(domainEvent.ChargeStationId));
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(newGroup));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceAggregateCommand<GroupAggregate, Guid>(newGroup));
     }
 }

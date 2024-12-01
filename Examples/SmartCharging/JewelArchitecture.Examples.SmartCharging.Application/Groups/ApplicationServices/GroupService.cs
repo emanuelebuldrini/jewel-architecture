@@ -23,7 +23,7 @@ public class GroupService(ILockService<GroupAggregate, Guid> groupLockService,
             Capacity = new AmpereUnit(dto.CapacityAmps)
         };
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(group));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceAggregateCommand<GroupAggregate, Guid>(group));
 
         return group.Id;
     }
@@ -46,6 +46,6 @@ public class GroupService(ILockService<GroupAggregate, Guid> groupLockService,
         var group = await GetSingleAsync(id);
         group.Name = dto.Name;
 
-        await addOrReplaceGroupCommandHandler.HandleAsync(new AddAggregateCommand<GroupAggregate, Guid>(group));
+        await addOrReplaceGroupCommandHandler.HandleAsync(new AddOrReplaceAggregateCommand<GroupAggregate, Guid>(group));
     }
 }
