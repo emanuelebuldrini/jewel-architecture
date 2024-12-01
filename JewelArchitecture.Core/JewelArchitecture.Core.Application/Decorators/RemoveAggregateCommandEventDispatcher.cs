@@ -4,9 +4,12 @@ using JewelArchitecture.Core.Domain;
 
 namespace JewelArchitecture.Core.Application.Decorators;
 
-public class RemoveAggregateCommandEventDispatcher<TAggregate, TId>(AggregateEventDispatcherService<TAggregate, TId> dispatcherService,
-   RemoveAggregateCommandHandler<TAggregate, TId> decoratee)
-    : IRemoveAggregateCommandHandler<TAggregate, TId>
+public sealed class RemoveAggregateCommandEventDispatcher<TAggregate, TId>
+    (AggregateEventDispatcherService<TAggregate, TId> dispatcherService,
+    RemoveAggregateCommandHandler<TAggregate, TId> decoratee)
+    : AggregateEventDispatcherDecoratorBase<TAggregate, TId, RemoveAggregateCommand<TAggregate, TId>>
+    (decoratee, dispatcherService),
+    IRemoveAggregateCommandHandler<TAggregate, TId>
     where TAggregate : IAggregateRoot<TId>, IRemovableAggregate
     where TId : notnull 
 {
@@ -15,9 +18,6 @@ public class RemoveAggregateCommandEventDispatcher<TAggregate, TId>(AggregateEve
         // The Aggregate decides which events to trigger depending on the cascade logic.
         cmd.Aggregate.Remove(cmd.IsCascadeRemoval);
 
-        // Dispatch events before physical removal.
-        await dispatcherService.DispatchAggregateEventsAsync(cmd.Aggregate);        
-
-        await decoratee.HandleAsync(cmd);
+        await Dispatch(cmd);       
     }
 }

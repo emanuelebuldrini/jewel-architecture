@@ -17,13 +17,13 @@ public static class IServiceCollectionExtension
          serviceCollection
             .AddSingleton<IEventDispatcher, DIEventDispatcher>()
             .AddSingleton(typeof(AggregateEventDispatcherService<,>))
-            .AddSingleton(typeof(ILockService<,>), typeof(InMemoryLockService<,>))           
+            .AddSingleton(typeof(ILockService<,>), typeof(InMemoryLockService<,>))
 
             .Scan(scan => scan.FromApplicationDependencies()
                 .AddClasses(classes => classes.AssignableToAny(typeof(ICommandHandler<>),
-                    typeof(IQueryHandler<,>), typeof(IEventHandler<>))   
+                    typeof(IQueryHandler<,>), typeof(IEventHandler<>))
                 // Exclude decorators that should be added later to wrap decoratees.
-                .NotInNamespaceOf(typeof(AggregateCommandEventDispatcher<,,>))
+                .NotInNamespaceOf(typeof(AggregateEventDispatcherDecoratorBase<,,>))
                 )
                 .AsImplementedInterfaces()
                 .WithSingletonLifetime())
