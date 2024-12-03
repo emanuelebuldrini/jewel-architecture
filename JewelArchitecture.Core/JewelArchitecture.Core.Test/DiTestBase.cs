@@ -9,9 +9,14 @@ public abstract class DiTestBase : IDisposable
 
     protected ServiceProvider? ServiceProvider { get => _serviceProvider; }
 
-    public DiTestBase()
+    public DiTestBase(bool buildServiceProvider = false)
     {
         _serviceCollection = GetServiceCollection();
+
+        if (buildServiceProvider)
+        {
+            BuildServiceProvider();
+        }
     }
 
     public void BuildServiceProvider()
