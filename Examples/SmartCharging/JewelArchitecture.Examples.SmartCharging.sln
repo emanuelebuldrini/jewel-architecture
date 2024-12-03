@@ -5,10 +5,6 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Application", "JewelArchitecture.Examples.SmartCharging.Application\JewelArchitecture.Examples.SmartCharging.Application.csproj", "{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.WebApi", "JewelArchitecture.Examples.SmartCharging.WebApi\JewelArchitecture.Examples.SmartCharging.WebApi.csproj", "{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.WebApiTest", "JewelArchitecture.Examples.SmartCharging.WebApiTest\JewelArchitecture.Examples.SmartCharging.WebApiTest.csproj", "{C2E950EF-7FC9-4F77-8351-59FD13D8C004}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Domain", "JewelArchitecture.Examples.SmartCharging.Domain\JewelArchitecture.Examples.SmartCharging.Domain.csproj", "{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Application", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Application\JewelArchitecture.Core.Application.csproj", "{1AF430F8-5D1E-4243-ACCD-825EF482B85D}"
@@ -23,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JewelArchitecture.Core", "JewelArchitecture.Core", "{7FE7D2B5-B6C3-4554-BEFE-6DE9C69EF327}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Interface", "JewelArchitecture.Examples.SmartCharging.Interface\JewelArchitecture.Examples.SmartCharging.Interface.csproj", "{81E7A4AF-2261-4E88-A151-2BD82B4A7470}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.SmartCharging.Test", "JewelArchitecture.Examples.SmartCharging.Test\JewelArchitecture.Examples.SmartCharging.Test.csproj", "{9D291D79-6AA9-489B-97CA-01B6ED2281F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,14 +33,6 @@ Global
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91EE2FC5-E452-45F5-AE5C-E004BDA6FD1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E41F8D6-6541-4CFD-B160-332E6FD38D5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2E950EF-7FC9-4F77-8351-59FD13D8C004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2E950EF-7FC9-4F77-8351-59FD13D8C004}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2E950EF-7FC9-4F77-8351-59FD13D8C004}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2E950EF-7FC9-4F77-8351-59FD13D8C004}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3579D5C8-1261-4F58-B7CE-E3D08594C3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +57,14 @@ Global
 		{C2519782-11A8-46EB-9380-2D1324BC993F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2519782-11A8-46EB-9380-2D1324BC993F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2519782-11A8-46EB-9380-2D1324BC993F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E7A4AF-2261-4E88-A151-2BD82B4A7470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E7A4AF-2261-4E88-A151-2BD82B4A7470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E7A4AF-2261-4E88-A151-2BD82B4A7470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E7A4AF-2261-4E88-A151-2BD82B4A7470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D291D79-6AA9-489B-97CA-01B6ED2281F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D291D79-6AA9-489B-97CA-01B6ED2281F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D291D79-6AA9-489B-97CA-01B6ED2281F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D291D79-6AA9-489B-97CA-01B6ED2281F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

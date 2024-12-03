@@ -1,6 +1,0 @@
-@JewelArchitecture.Examples.SmartCharging.WebApi_HostAddress = http://localhost:5253
-
-POST {{JewelArchitecture.Examples.SmartCharging.WebApi_HostAddress}}/api/ChargeStation/
-Accept: application/json
-
-###

@@ -1,0 +1,6 @@
+@JewelArchitecture.Examples.SmartCharging.Interface_HostAddress = http://localhost:5253
+
+GET {{JewelArchitecture.Examples.SmartCharging.Interface_HostAddress}}/api/ChargeStation/d24caf3b-1509-4a0b-98e3-1be46a34ed7e
+Accept: application/json
+
+###
