@@ -1,8 +1,7 @@
 ﻿using JewelArchitecture.Core.Application.CommandHandlers;
-using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Domain.Interfaces;
 
-namespace JewelArchitecture.Core.Application.Decorators;
+namespace JewelArchitecture.Core.Application.Commands.Decorators;
 
 public sealed class AggregateCommandEventDispatcher<TAggregate, TId, TCommand>
     (AggregateEventDispatcherService<TAggregate, TId> dispatcherService,

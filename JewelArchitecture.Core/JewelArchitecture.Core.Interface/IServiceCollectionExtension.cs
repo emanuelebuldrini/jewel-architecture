@@ -1,6 +1,5 @@
 ﻿using JewelArchitecture.Core.Application;
 using JewelArchitecture.Core.Application.Abstractions;
-using JewelArchitecture.Core.Application.Decorators;
 using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Infrastructure.Concurrency;
 using JewelArchitecture.Core.Infrastructure.Messaging;
@@ -8,6 +7,7 @@ using JewelArchitecture.Core.Infrastructure.Persistence;
 using JewelArchitecture.Core.Application.Events;
 using Microsoft.Extensions.DependencyInjection;
 using JewelArchitecture.Core.Application.CommandHandlers;
+using JewelArchitecture.Core.Application.Commands.Decorators;
 
 namespace JewelArchitecture.Core.Interface;
 

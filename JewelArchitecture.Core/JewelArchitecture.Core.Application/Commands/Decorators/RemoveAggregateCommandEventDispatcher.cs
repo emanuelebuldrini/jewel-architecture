@@ -2,7 +2,7 @@
 using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Domain.Interfaces;
 
-namespace JewelArchitecture.Core.Application.Decorators;
+namespace JewelArchitecture.Core.Application.Commands.Decorators;
 
 public sealed class RemoveAggregateCommandEventDispatcher<TAggregate, TId>
     (AggregateEventDispatcherService<TAggregate, TId> dispatcherService,
@@ -11,13 +11,13 @@ public sealed class RemoveAggregateCommandEventDispatcher<TAggregate, TId>
     (decoratee, dispatcherService),
     IRemoveAggregateCommandHandler<TAggregate, TId>
     where TAggregate : IAggregateRoot<TId>, IRemovableAggregate
-    where TId : notnull 
+    where TId : notnull
 {
-    public async Task HandleAsync(RemoveAggregateCommand<TAggregate,TId> cmd)
+    public async Task HandleAsync(RemoveAggregateCommand<TAggregate, TId> cmd)
     {
         // The Aggregate decides which events to trigger depending on the cascade logic.
         cmd.Aggregate.Remove(cmd.IsCascadeRemoval);
 
-        await Dispatch(cmd);       
+        await Dispatch(cmd);
     }
 }
