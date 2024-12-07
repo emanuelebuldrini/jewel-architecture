@@ -18,6 +18,8 @@ internal class ServiceCollectionFactory
 
         serviceCollection
             .AddJewelArchitecture()
+            .AddInMemoryLockService()
+            .AddInMemoryEventDispatcher()
             .AddSmartCharging();
 
         return serviceCollection;

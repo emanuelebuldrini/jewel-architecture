@@ -17,9 +17,7 @@ public static class IServiceCollectionExtension
     public static IServiceCollection AddJewelArchitecture(this IServiceCollection serviceCollection)
     {
         serviceCollection
-           .AddSingleton<IEventDispatcher, DIEventDispatcher>()
            .AddSingleton(typeof(AggregateEventDispatcherService<,>))
-           .AddSingleton(typeof(ILockService<,>), typeof(InMemoryLockService<,>))
 
            .Scan(scan => scan.FromApplicationDependencies()
                .AddClasses(classes => classes.AssignableToAny(typeof(ICommandHandler<>),
@@ -41,7 +39,15 @@ public static class IServiceCollectionExtension
         return serviceCollection;
     }
 
+    // Infrastracture components registration:
+
     public static IServiceCollection AddInMemoryJsonRepository(this IServiceCollection serviceCollection) =>
         serviceCollection.AddSingleton(typeof(IRepository<,>), typeof(InMemoryJsonRepository<,>))
             .AddSingleton(typeof(AggregateJsonSerializer<,>));
+
+    public static IServiceCollection AddInMemoryLockService(this IServiceCollection serviceCollection) =>
+        serviceCollection.AddSingleton(typeof(ILockService<,>), typeof(InMemoryLockService<,>));
+
+    public static IServiceCollection AddInMemoryEventDispatcher(this IServiceCollection serviceCollection) =>
+        serviceCollection.AddSingleton<IEventDispatcher, DIEventDispatcher>();
 }

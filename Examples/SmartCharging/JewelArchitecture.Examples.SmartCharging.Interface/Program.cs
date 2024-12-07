@@ -27,7 +27,12 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddSwaggerExamplesFromAssemblyOf<ChargeStationCreateDtoExample>();
 
 builder.Services.AddJewelArchitecture();
+
+// Add in-memory infrastracture components.
 builder.Services.AddInMemoryJsonRepository();
+builder.Services.AddInMemoryLockService();
+builder.Services.AddInMemoryEventDispatcher();
+
 builder.Services.AddSmartCharging();
 
 builder.Services.AddMvc(options =>
