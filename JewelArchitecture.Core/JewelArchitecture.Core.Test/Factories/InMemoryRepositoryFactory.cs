@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Core.Domain;
+﻿using JewelArchitecture.Core.Domain.BaseTypes;
 using JewelArchitecture.Core.Infrastructure.Persistence;
 using JewelArchitecture.Core.Test.Concurrency;
 

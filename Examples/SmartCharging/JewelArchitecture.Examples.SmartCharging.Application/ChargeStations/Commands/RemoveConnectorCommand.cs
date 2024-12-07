@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.Commands;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.Interfaces;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.Commands;

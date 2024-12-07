@@ -1,4 +1,4 @@
-﻿namespace JewelArchitecture.Core.Domain;
+﻿namespace JewelArchitecture.Core.Domain.Interfaces;
 
 public interface IRemovableAggregate
 {

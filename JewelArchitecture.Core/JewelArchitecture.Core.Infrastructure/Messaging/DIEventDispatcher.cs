@@ -1,6 +1,6 @@
 ﻿using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Core.Application.Events;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JewelArchitecture.Core.Infrastructure.Messaging

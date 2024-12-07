@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Core.Domain;
+﻿using JewelArchitecture.Core.Domain.BaseTypes;
 
 namespace JewelArchitecture.Core.Application.Abstractions;
 

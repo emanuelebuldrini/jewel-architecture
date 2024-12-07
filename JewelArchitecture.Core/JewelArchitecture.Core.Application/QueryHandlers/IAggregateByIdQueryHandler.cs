@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.Queries;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.Interfaces;
 
 namespace JewelArchitecture.Core.Application.QueryHandlers;
 

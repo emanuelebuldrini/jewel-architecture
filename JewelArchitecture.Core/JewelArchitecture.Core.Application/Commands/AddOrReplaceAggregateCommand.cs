@@ -1,4 +1,4 @@
-﻿using JewelArchitecture.Core.Domain;
+﻿using JewelArchitecture.Core.Domain.Interfaces;
 
 namespace JewelArchitecture.Core.Application.Commands;
 

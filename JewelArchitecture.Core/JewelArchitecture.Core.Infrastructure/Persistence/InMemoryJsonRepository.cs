@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.Abstractions;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.Interfaces;
 using System.Collections.Concurrent;
 
 namespace JewelArchitecture.Core.Infrastructure.Persistence

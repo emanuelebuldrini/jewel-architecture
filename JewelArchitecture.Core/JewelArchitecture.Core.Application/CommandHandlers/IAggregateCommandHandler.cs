@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.Commands;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.Interfaces;
 
 namespace JewelArchitecture.Core.Application.CommandHandlers;
 

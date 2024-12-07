@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.Interfaces;
 
 namespace JewelArchitecture.Core.Infrastructure.Persistence
 {

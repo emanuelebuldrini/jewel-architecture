@@ -1,4 +1,5 @@
-﻿using JewelArchitecture.Core.Domain;
+﻿using JewelArchitecture.Core.Domain.BaseTypes;
+using JewelArchitecture.Core.Domain.Interfaces;
 
 namespace JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 

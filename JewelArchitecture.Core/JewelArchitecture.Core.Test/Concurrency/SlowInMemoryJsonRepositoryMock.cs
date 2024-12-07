@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.Abstractions;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.BaseTypes;
 using JewelArchitecture.Core.Infrastructure.Persistence;
 
 namespace JewelArchitecture.Core.Test.Concurrency

@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
-using JewelArchitecture.Core.Domain;
+using JewelArchitecture.Core.Domain.Interfaces;
 
 namespace JewelArchitecture.Examples.SmartCharging.Domain.Groups.DomainEvents
 {

@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using JewelArchitecture.Core.Domain.Interfaces;
 
-namespace JewelArchitecture.Core.Domain;
+namespace JewelArchitecture.Core.Domain.BaseTypes;
 
-public abstract record AggregateRootBase<TId>: IAggregateRoot<TId>
+public abstract record AggregateRootBase<TId> : IAggregateRoot<TId>
     where TId : notnull
 {
     protected List<IDomainEvent> Events { get; } = [];
