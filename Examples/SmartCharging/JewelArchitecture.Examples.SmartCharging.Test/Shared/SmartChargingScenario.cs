@@ -1,5 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.Abstractions;
-using JewelArchitecture.Core.Test;
+using JewelArchitecture.Core.Test.Mocks;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using Microsoft.Extensions.DependencyInjection;

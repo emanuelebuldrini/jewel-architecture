@@ -1,11 +1,11 @@
 ﻿using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Core.Domain.BaseTypes;
 
-namespace JewelArchitecture.Core.Test
+namespace JewelArchitecture.Core.Test.Mocks
 {
     public class RepositoryMock<TAggregate, TId>() : IRepository<TAggregate, TId>
         where TAggregate : AggregateRootBase<TId>
-        where TId : notnull 
+        where TId : notnull
     {
         private readonly List<TAggregate> _aggregates = [];
 

@@ -1,4 +1,4 @@
-using JewelArchitecture.Core.Test;
+using JewelArchitecture.Core.Test.Mocks;
 using JewelArchitecture.Examples.SmartCharging.Application.Groups.Dto;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;

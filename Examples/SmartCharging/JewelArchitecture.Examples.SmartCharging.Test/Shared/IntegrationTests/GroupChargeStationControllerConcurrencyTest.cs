@@ -6,7 +6,6 @@ using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Examples.SmartCharging.Interface.ChargeStations;
 using JewelArchitecture.Examples.SmartCharging.Interface.Groups;
-using JewelArchitecture.Examples.SmartCharging.Test.Shared;
 using JewelArchitecture.Examples.SmartCharging.Test.Shared.Factories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;

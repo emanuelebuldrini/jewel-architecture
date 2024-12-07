@@ -1,8 +1,8 @@
 ﻿using JewelArchitecture.Core.Application.CommandHandlers;
-using JewelArchitecture.Core.Application.Commands;
+using JewelArchitecture.Core.Application.Commands.Decorators.Dispatching.BaseTypes;
 using JewelArchitecture.Core.Domain.Interfaces;
 
-namespace JewelArchitecture.Core.Application.Commands.Decorators;
+namespace JewelArchitecture.Core.Application.Commands.Decorators.Dispatching;
 
 public sealed class RemoveAggregateCommandEventDispatcher<TAggregate, TId>
     (AggregateEventDispatcherService<TAggregate, TId> dispatcherService,

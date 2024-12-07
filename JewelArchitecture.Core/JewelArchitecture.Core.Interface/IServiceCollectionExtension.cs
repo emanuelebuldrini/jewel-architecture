@@ -7,7 +7,8 @@ using JewelArchitecture.Core.Infrastructure.Persistence;
 using JewelArchitecture.Core.Application.Events;
 using Microsoft.Extensions.DependencyInjection;
 using JewelArchitecture.Core.Application.CommandHandlers;
-using JewelArchitecture.Core.Application.Commands.Decorators;
+using JewelArchitecture.Core.Application.Commands.Decorators.Dispatching.BaseTypes;
+using JewelArchitecture.Core.Application.Commands.Decorators.Dispatching;
 
 namespace JewelArchitecture.Core.Interface;
 
@@ -38,7 +39,6 @@ public static class IServiceCollectionExtension
 
         return serviceCollection;
     }
-    // Add command decorators: should be registered after the command decoratees to wrap them.
 
     public static IServiceCollection AddInMemoryJsonRepository(this IServiceCollection serviceCollection) =>
         serviceCollection.AddSingleton(typeof(IRepository<,>), typeof(InMemoryJsonRepository<,>))

@@ -1,7 +1,7 @@
 ﻿using JewelArchitecture.Core.Application.CommandHandlers;
 using JewelArchitecture.Core.Domain.Interfaces;
 
-namespace JewelArchitecture.Core.Application.Commands.Decorators;
+namespace JewelArchitecture.Core.Application.Commands.Decorators.Dispatching.BaseTypes;
 
 public abstract class AggregateEventDispatcherDecoratorBase<TAggregate, TId, TCommand>
     (IAggregateCommandHandler<TAggregate, TId, TCommand> decoratee,
