@@ -4,6 +4,8 @@ I call it Jewel Architecture because it organizes your system into multifaceted,
 Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pattern: this implementation includes buffering and dispatching of aggregate events to **preserve the domain logic's purity** while ensuring consistency in persistence and event publishing.
 
 ## Foundation Principles
+**0. Grounded in SOLID principles:** Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.
+
 **1. The Domain is Central:** It is self-contained and free from dependencies.
 
 **2. The Application Layer Supports the Domain:** Its role is to provide the domain with the necessary context and data for business decisions.
