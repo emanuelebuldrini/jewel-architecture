@@ -1,4 +1,4 @@
-using JewelArchitecture.Core.Interface;
+using JewelArchitecture.Core.Interface.Extensions;
 using JewelArchitecture.Examples.SmartCharging.Interface.ChargeStations.DtoExamples;
 using JewelArchitecture.Examples.SmartCharging.Interface.Shared;
 using Microsoft.OpenApi.Models;

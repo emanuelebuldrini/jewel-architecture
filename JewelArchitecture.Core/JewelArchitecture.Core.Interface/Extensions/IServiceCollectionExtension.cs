@@ -10,11 +10,12 @@ using JewelArchitecture.Core.Application.CommandHandlers;
 using JewelArchitecture.Core.Application.Commands.Decorators.Dispatching.BaseTypes;
 using JewelArchitecture.Core.Application.Commands.Decorators.Dispatching;
 
-namespace JewelArchitecture.Core.Interface;
+namespace JewelArchitecture.Core.Interface.Extensions;
 
 public static class IServiceCollectionExtension
 {
-    public static IServiceCollection AddJewelArchitecture(this IServiceCollection serviceCollection) {
+    public static IServiceCollection AddJewelArchitecture(this IServiceCollection serviceCollection)
+    {
         serviceCollection
            .AddSingleton<IEventDispatcher, DIEventDispatcher>()
            .AddSingleton(typeof(AggregateEventDispatcherService<,>))
