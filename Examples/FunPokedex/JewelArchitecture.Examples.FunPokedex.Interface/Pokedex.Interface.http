@@ -1,0 +1,6 @@
+@JewelArchitecture.Examples.FunPokedex.Interface_HostAddress = http://localhost:5046
+
+GET {{JewelArchitecture.Examples.FunPokedex.Interface_HostAddress}}/Pokemon/mewtwo
+Accept: application/json
+
+###

@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JewelArchitecture.Core", "JewelArchitecture.Core", "{B5E25AA6-547E-4FBE-BBA7-71CC511D86D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Application", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Application\JewelArchitecture.Core.Application.csproj", "{EC148F83-214E-4437-BF8E-CC7A3765791F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Domain", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Domain\JewelArchitecture.Core.Domain.csproj", "{A6538794-E556-4435-A04B-6B72EE0FC9C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Infrastructure", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Infrastructure\JewelArchitecture.Core.Infrastructure.csproj", "{EBC119E2-D738-4521-8932-EBE8A194A4D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Interface", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Interface\JewelArchitecture.Core.Interface.csproj", "{70160442-80EE-49F3-A95F-12D7AD499CEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Core.Test", "..\..\JewelArchitecture.Core\JewelArchitecture.Core.Test\JewelArchitecture.Core.Test.csproj", "{EB31A503-D31D-49D4-AB42-24E021080B26}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.FunPokedex.Application", "JewelArchitecture.Examples.FunPokedex.Application\JewelArchitecture.Examples.FunPokedex.Application.csproj", "{3228554F-D7CA-4F2F-B87C-5FCD2A7E1BCB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.FunPokedex.Domain", "JewelArchitecture.Examples.FunPokedex.Domain\JewelArchitecture.Examples.FunPokedex.Domain.csproj", "{A31FE931-485A-408A-AAA7-A5DCECF36D19}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.FunPokedex.Infrastructure", "JewelArchitecture.Examples.FunPokedex.Infrastructure\JewelArchitecture.Examples.FunPokedex.Infrastructure.csproj", "{AB260D57-9CCC-4DA8-8290-1DB2B6209A84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.FunPokedex.Interface", "JewelArchitecture.Examples.FunPokedex.Interface\JewelArchitecture.Examples.FunPokedex.Interface.csproj", "{232CD605-AB15-4B39-B8D6-3BF34E3B7B55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelArchitecture.Examples.FunPokedex.Test", "JewelArchitecture.Examples.FunPokedex.Test\JewelArchitecture.Examples.FunPokedex.Test.csproj", "{6390E697-AC75-4FAB-99BD-ABB1AFF4E548}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC148F83-214E-4437-BF8E-CC7A3765791F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC148F83-214E-4437-BF8E-CC7A3765791F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC148F83-214E-4437-BF8E-CC7A3765791F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC148F83-214E-4437-BF8E-CC7A3765791F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6538794-E556-4435-A04B-6B72EE0FC9C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6538794-E556-4435-A04B-6B72EE0FC9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6538794-E556-4435-A04B-6B72EE0FC9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6538794-E556-4435-A04B-6B72EE0FC9C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC119E2-D738-4521-8932-EBE8A194A4D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC119E2-D738-4521-8932-EBE8A194A4D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC119E2-D738-4521-8932-EBE8A194A4D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC119E2-D738-4521-8932-EBE8A194A4D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70160442-80EE-49F3-A95F-12D7AD499CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70160442-80EE-49F3-A95F-12D7AD499CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70160442-80EE-49F3-A95F-12D7AD499CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70160442-80EE-49F3-A95F-12D7AD499CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB31A503-D31D-49D4-AB42-24E021080B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB31A503-D31D-49D4-AB42-24E021080B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB31A503-D31D-49D4-AB42-24E021080B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB31A503-D31D-49D4-AB42-24E021080B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3228554F-D7CA-4F2F-B87C-5FCD2A7E1BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3228554F-D7CA-4F2F-B87C-5FCD2A7E1BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3228554F-D7CA-4F2F-B87C-5FCD2A7E1BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3228554F-D7CA-4F2F-B87C-5FCD2A7E1BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A31FE931-485A-408A-AAA7-A5DCECF36D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A31FE931-485A-408A-AAA7-A5DCECF36D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A31FE931-485A-408A-AAA7-A5DCECF36D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A31FE931-485A-408A-AAA7-A5DCECF36D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB260D57-9CCC-4DA8-8290-1DB2B6209A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB260D57-9CCC-4DA8-8290-1DB2B6209A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB260D57-9CCC-4DA8-8290-1DB2B6209A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB260D57-9CCC-4DA8-8290-1DB2B6209A84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232CD605-AB15-4B39-B8D6-3BF34E3B7B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232CD605-AB15-4B39-B8D6-3BF34E3B7B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232CD605-AB15-4B39-B8D6-3BF34E3B7B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232CD605-AB15-4B39-B8D6-3BF34E3B7B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6390E697-AC75-4FAB-99BD-ABB1AFF4E548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6390E697-AC75-4FAB-99BD-ABB1AFF4E548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6390E697-AC75-4FAB-99BD-ABB1AFF4E548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6390E697-AC75-4FAB-99BD-ABB1AFF4E548}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC148F83-214E-4437-BF8E-CC7A3765791F} = {B5E25AA6-547E-4FBE-BBA7-71CC511D86D4}
+		{A6538794-E556-4435-A04B-6B72EE0FC9C4} = {B5E25AA6-547E-4FBE-BBA7-71CC511D86D4}
+		{EBC119E2-D738-4521-8932-EBE8A194A4D3} = {B5E25AA6-547E-4FBE-BBA7-71CC511D86D4}
+		{70160442-80EE-49F3-A95F-12D7AD499CEA} = {B5E25AA6-547E-4FBE-BBA7-71CC511D86D4}
+		{EB31A503-D31D-49D4-AB42-24E021080B26} = {B5E25AA6-547E-4FBE-BBA7-71CC511D86D4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FCCC1FF-ED56-4B4B-A339-E4CAE414A39F}
+	EndGlobalSection
+EndGlobal
