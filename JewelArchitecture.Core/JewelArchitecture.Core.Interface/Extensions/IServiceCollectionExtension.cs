@@ -26,7 +26,7 @@ public static class IServiceCollectionExtension
                .NotInNamespaceOf(typeof(AggregateEventDispatcherDecoratorBase<,,>))
                )
                .AsImplementedInterfaces()
-               .WithSingletonLifetime())
+               .WithTransientLifetime())
 
            // Add command decorators: should be registered after the command decoratees to wrap them.
            .AddSingleton(typeof(AddOrReplaceAggregateCommandHandler<,>)) // Add the concrete type to avoid loops in the decorator.
