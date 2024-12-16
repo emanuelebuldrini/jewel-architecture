@@ -24,6 +24,7 @@ public static class IServiceCollectionExtension
                    typeof(IQueryHandler<,>), typeof(IEventHandler<>))
                // Exclude decorators that should be added later to wrap decoratees.
                .NotInNamespaceOf(typeof(AggregateEventDispatcherDecoratorBase<,,>))
+               .Where(type => !type.Name.EndsWith("Decorator"))
                )
                .AsImplementedInterfaces()
                .WithTransientLifetime())
