@@ -19,7 +19,8 @@ Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pa
 **6. Focused Interaction:** The application layer exposes Use Cases or Services, offering clear entry points for the interface layer.
   
 ## Examples
-This repository contains solutions structured using the Jewel Architecture, like for example a simplified Smart Charging domain.
+This repository contains solutions structured using the Jewel Architecture, like for example a simplified **Smart Charging** domain.
+Or even a fun version of the **Pokédex**, where under certain conditions, the description of a Pokémon is translated into Yoda's or Shakespeare's language.
 The examples use the solution **JewelArchitecture.Core as a base** to implement the specific domain logic. The example projects mirror the structure of the core with the 4 layers: Application, Domain, Interface and an optional Infrastructure level.
 
 ## Solution Structure
