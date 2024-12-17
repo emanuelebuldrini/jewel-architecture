@@ -85,7 +85,7 @@ dotnet test
 
 This project is an exploration of a software architecture that is suitable to tackle complex problems and challenges of the modern world, created during my own time using personal resources. It’s an opportunity to share ideas and contribute to the broader software engineering community. 
 
-While this project reflects my passion for architecture and design, it is entirely separate from my professional work and is not affiliated with or endorsed by any employer.
+While this project reflects my passion for architecture and design, it is entirely separate from my professional work and is neither affiliated with nor endorsed by any employer.
 
 ## 💬 Share Your Feedback
 
@@ -102,6 +102,6 @@ Feel free to join the conversation in the **[Discussions](https://github.com/ema
 
 - **Email:** <a href="mailto:jewelarchitecture.feedback@gmail.com">jewelarchitecture.feedback@gmail.com</a>
 
-If you like what I'm doing, consider watching and starring the repository to stay updated on the latest improvements. It also helps make the project more discoverable to the community. I value every contribution and look forward to engaging with the software engineering community! 
+I aim to respond within 24 hours whenever possible. If you like what I'm doing, consider watching and starring the repository to stay updated on the latest improvements. It also helps make the project more discoverable to the community. I value every contribution and look forward to engaging with the software engineering community! 
 
 
