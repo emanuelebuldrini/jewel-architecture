@@ -1,4 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.QueryHandlers;
+using JewelArchitecture.Core.Infrastructure.Resilience;
 using JewelArchitecture.Examples.FunPokedex.Application.Abstractions;
 using JewelArchitecture.Examples.FunPokedex.Application.Pokemon.ApplicationServices;
 using JewelArchitecture.Examples.FunPokedex.Application.Pokemon.UseCases;
@@ -6,7 +7,6 @@ using JewelArchitecture.Examples.FunPokedex.Application.Shared.FunTranslations;
 using JewelArchitecture.Examples.FunPokedex.Infrastructure.ApiClients.FunTranslations;
 using JewelArchitecture.Examples.FunPokedex.Infrastructure.ApiClients.Pokeapi;
 using JewelArchitecture.Examples.FunPokedex.Infrastructure.Caching;
-using JewelArchitecture.Examples.FunPokedex.Infrastructure.Resilience;
 
 namespace JewelArchitecture.Examples.FunPokedex.Interface.Shared;
 

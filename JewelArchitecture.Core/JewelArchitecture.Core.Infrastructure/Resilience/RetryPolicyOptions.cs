@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace JewelArchitecture.Examples.FunPokedex.Infrastructure.Resilience;
+namespace JewelArchitecture.Core.Infrastructure.Resilience;
 
 public class RetryPolicyOptions
 {

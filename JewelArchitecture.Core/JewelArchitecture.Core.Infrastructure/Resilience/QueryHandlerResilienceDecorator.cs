@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Polly.Retry;
 
-namespace JewelArchitecture.Examples.FunPokedex.Infrastructure.Resilience;
+namespace JewelArchitecture.Core.Infrastructure.Resilience;
 
 public class QueryHandlerResilienceDecorator<TQuery, TResult> : IQueryHandler<TQuery, TResult>
     where TQuery : IQuery

@@ -1,8 +1,8 @@
 ﻿using Polly.Retry;
 using Polly;
-using JewelArchitecture.Examples.FunPokedex.Infrastructure.ApiClients.Exceptions;
+using JewelArchitecture.Core.Infrastructure.Resilience.Exceptions;
 
-namespace JewelArchitecture.Examples.FunPokedex.Infrastructure.Resilience
+namespace JewelArchitecture.Core.Infrastructure.Resilience
 {
     public static class PollyHttpRequestHelper
     {

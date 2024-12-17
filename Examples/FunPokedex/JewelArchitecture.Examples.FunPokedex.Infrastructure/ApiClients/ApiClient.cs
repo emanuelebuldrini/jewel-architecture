@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
-using JewelArchitecture.Examples.FunPokedex.Infrastructure.ApiClients.Exceptions;
 using JewelArchitecture.Examples.FunPokedex.Infrastructure.Caching;
+using JewelArchitecture.Core.Infrastructure.Resilience.Exceptions;
 using UrlCombineLib;
 
 namespace JewelArchitecture.Examples.FunPokedex.Infrastructure.ApiClients;

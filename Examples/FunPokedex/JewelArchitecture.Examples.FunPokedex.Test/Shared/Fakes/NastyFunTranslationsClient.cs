@@ -1,5 +1,5 @@
-﻿using JewelArchitecture.Examples.FunPokedex.Application.Abstractions;
-using JewelArchitecture.Examples.FunPokedex.Infrastructure.ApiClients.Exceptions;
+﻿using JewelArchitecture.Core.Infrastructure.Resilience.Exceptions;
+using JewelArchitecture.Examples.FunPokedex.Application.Abstractions;
 using JewelArchitecture.Examples.FunPokedex.Infrastructure.ApiClients.FunTranslations;
 
 namespace JewelArchitecture.Examples.FunPokedex.Test.Shared.Fakes;
