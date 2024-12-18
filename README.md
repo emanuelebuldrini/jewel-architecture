@@ -3,6 +3,87 @@ Jewel Architecture is a fusion of DDD, CQRS, and Clean Architecture—a pattern 
 I call it Jewel Architecture because it organizes your system into multifaceted, interchangeable components, creating a highly valuable and mantainable structure—like a finely cut gem.
 Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pattern: this implementation includes buffering and dispatching of aggregate events to **preserve the domain logic's purity** while ensuring consistency in persistence and event publishing.
 
+## Architectural Diagram
+```mermaid
+flowchart TB
+    %% Layers
+    subgraph UI [Interface Layer]
+        A[UI/Controllers]
+    end
+
+    subgraph Application [Application Layer]
+        B[Use Cases]
+        S[Services]
+        CommandHandlers[Command Handlers]
+        Commands[Commands]
+        Queries[Queries]
+        EventHandlers[Event Handlers]
+        QueryHandlers[Query Handlers]
+        Abstractions[[Abstractions]]
+        AppDecorators[[Decorators]]
+    end
+
+    subgraph Domain [Domain Layer]
+        Aggregates[Aggregates]
+        Entities[Entities]
+        ValueObjects[Value Objects]
+        DomainEvents[Domain Events]
+        DomainServices[Domain Services]
+        EventBuffering[Unit of Work - Event Buffering]
+    end
+
+    subgraph Infrastructure [Infrastructure Layer]
+        Repositories[Repositories]
+        Messaging[Messaging]
+        Resilience[Resilience]
+        Concurrency[Concurrency]
+    end
+
+    %% Relationships
+    A --> B
+    A --> S
+    B --> Aggregates
+    S --> Aggregates
+    B --> S
+    B --> DomainServices
+    B --> Abstractions
+    DomainServices --> Aggregates
+    CommandHandlers --> Aggregates
+    QueryHandlers --> Aggregates
+    CommandHandlers --> Commands
+    QueryHandlers --> Queries
+    EventHandlers --> Aggregates
+    EventHandlers --> DomainEvents
+    EventHandlers --> Abstractions
+    QueryHandlers --> Abstractions
+    CommandHandlers --> Abstractions
+    AppDecorators -.-> B
+    AppDecorators -.-> CommandHandlers
+    AppDecorators -.-> QueryHandlers
+    AppDecorators -.-> EventHandlers
+    Aggregates --> ValueObjects
+    Aggregates --> DomainEvents
+    Aggregates --> Entities
+    Aggregates --> EventBuffering
+    Repositories --> Abstractions
+    Resilience --> Abstractions
+    Messaging --> Abstractions
+    Concurrency --> Abstractions
+
+ %% Domain Layer
+    classDef blueLayer fill:#c8e5eb,stroke:#333,stroke-width:2px;
+    Domain:::blueLayer
+ %% App Layer
+    classDef ywLayer fill:#fcf1a9,stroke:#333,stroke-width:2px;
+    Application:::ywLayer
+ %% Interface Layer
+    classDef greenLayer fill:#e5f7ba,stroke:#333,stroke-width:2px;
+    UI:::greenLayer
+ %% Infrastructure Layer
+    classDef redLayer fill:#f7c2ba,stroke:#333,stroke-width:2px;
+    Infrastructure:::redLayer
+```
+
 ## Foundation Principles
 **0. Grounded in SOLID principles:** Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.
 
@@ -19,7 +100,7 @@ Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pa
 **6. Focused Interaction:** The application layer exposes Use Cases or Services, offering clear entry points for the interface layer.
   
 ## Examples
-This repository contains solutions structured using the Jewel Architecture, like for example a simplified **Smart Charging** domain.
+This repository showcases solutions structured using the Jewel Architecture, including a simplified **Smart Charging** domain. The core domain invariant ensures that a Group capacity remains valid across all related Charge Stations and Connectors.
 Or even a fun version of the **Pokédex**, where under certain conditions, the description of a Pokémon is translated into Yoda's or Shakespeare's language.
 The examples use the solution **JewelArchitecture.Core as a base** to implement the specific domain logic. The example projects mirror the structure of the core with the 4 layers: Application, Domain, Interface and an optional Infrastructure level.
 
@@ -43,10 +124,8 @@ The solutions use an aggregate-based folder structure and follows a clean archit
 
 - If you need to add persistent storage, transactional support or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
 
-## Smart Charging Prerequisites
+## Running the Examples - Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine
-  
-It is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for API documentation and uses an in-memory database, so no external dependencies are required.
 
 ## Getting Started
 
@@ -56,8 +135,7 @@ Clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/emanuelebuldrini/jewel-architecture.git
-cd Examples
-cd SmartCharging
+cd Examples/[ExampleProjectName]
 ```
 ### 2. Build the Solution
 Use the .NET CLI to restore and build the solution:
@@ -67,25 +145,57 @@ dotnet build
 ### 3. Run the Application
 Run the application using the .NET CLI.
 ```bash
-dotnet run --project ".\JewelArchitecture.Examples.SmartCharging.WebApi\JewelArchitecture.Examples.SmartCharging.WebApi.csproj"
+dotnet run --project "./JewelArchitecture.Examples.[ExampleProjectName].Interface/JewelArchitecture.Examples.[ExampleProjectName].Interface.csproj"
 ```
-### 4. Access the Application
-Once running, you can access the Swagger API documentation at:
 
-HTTP: http://localhost:5253/swagger
-
-### 5. Test the Application
+### 4. Test the Application
 To run tests for the application, use:
 ```bash
 dotnet test
 ```
+## Example-Specific Details
 
+### Smart Charging
+This is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for API documentation and uses an in-memory database, so **no external dependencies** are required.
+To run this example, navigate to the folder:
 
-## About This Project
+```bash
+cd Examples/SmartCharging
+```
 
-This project is an exploration of a software architecture that is suitable to tackle complex problems and challenges of the modern world, created during my own time using personal resources. It’s an opportunity to share ideas and contribute to the broader software engineering community. 
+And run the following command:
 
-While this project reflects my passion for architecture and design, it is entirely separate from my professional work and is not affiliated with or endorsed by any employer.
+```bash
+dotnet run --project "./JewelArchitecture.Examples.SmartCharging.Interface/JewelArchitecture.Examples.SmartCharging.Interface.csproj"
+```
+
+Once running, you can access the Swagger API documentation at:
+
+HTTP: http://localhost:5253/swagger
+
+### Fun Pokédex
+This is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for documentation and **depends on external APIs**, requiring an active internet connection.
+To run this example, navigate to the folder:
+
+```bash
+cd Examples/FunPokedex
+```
+
+And run the following command:
+
+```bash
+dotnet run --project "./JewelArchitecture.Examples.FunPokedex.Interface/JewelArchitecture.Examples.FunPokedex.Interface.csproj"
+```
+
+Once running, you can access the Swagger API documentation at:
+
+HTTP: http://localhost:5046/swagger
+
+## About Jewel Architecture Project
+
+This project explores an architecture designed to address complex software problems, developed in my own time using personal resources. It offers an opportunity to share ideas and contribute to the broader software engineering community.
+
+While this project reflects my passion for architecture and design, it is entirely separate from my professional work and is neither affiliated with nor endorsed by any employer.
 
 ## 💬 Share Your Feedback
 
@@ -102,6 +212,6 @@ Feel free to join the conversation in the **[Discussions](https://github.com/ema
 
 - **Email:** <a href="mailto:jewelarchitecture.feedback@gmail.com">jewelarchitecture.feedback@gmail.com</a>
 
-If you like what I'm doing, consider watching and starring the repository to stay updated on the latest improvements. It also helps make the project more discoverable to the community. I value every contribution and look forward to engaging with the software engineering community! 
+I aim to respond within 24 hours whenever possible. If you like what I'm doing, consider watching and starring the repository to stay updated on the latest improvements. It also helps make the project more discoverable to the community. I value every contribution and look forward to engaging with the software engineering community! 
 
 
