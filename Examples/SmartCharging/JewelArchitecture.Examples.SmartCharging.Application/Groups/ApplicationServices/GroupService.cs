@@ -2,7 +2,6 @@
 using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Core.Application.Commands;
 using JewelArchitecture.Core.Application.QueryHandlers;
-using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Domain.Groups;
 using JewelArchitecture.Examples.SmartCharging.Domain.Shared;
 using JewelArchitecture.Core.Application.Abstractions;

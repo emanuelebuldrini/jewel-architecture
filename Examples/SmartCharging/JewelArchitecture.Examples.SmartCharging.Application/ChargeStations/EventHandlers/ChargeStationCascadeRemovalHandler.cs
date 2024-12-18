@@ -5,7 +5,6 @@ using JewelArchitecture.Core.Application.QueryHandlers;
 using JewelArchitecture.Core.Application.Events;
 using JewelArchitecture.Core.Application.CommandHandlers;
 using JewelArchitecture.Core.Application.Commands;
-using JewelArchitecture.Core.Application.Queries;
 
 namespace JewelArchitecture.Examples.SmartCharging.Application.ChargeStations.EventHandlers
 {

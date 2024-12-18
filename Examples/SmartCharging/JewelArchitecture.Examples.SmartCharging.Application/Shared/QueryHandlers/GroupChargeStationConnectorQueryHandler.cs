@@ -1,6 +1,5 @@
 ﻿using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Core.Application.QueryHandlers;
-using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries;
 using JewelArchitecture.Examples.SmartCharging.Application.Shared.Queries.Results;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;

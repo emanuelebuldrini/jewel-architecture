@@ -2,7 +2,6 @@
 using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Examples.SmartCharging.Domain.ChargeStations;
 using JewelArchitecture.Core.Application.QueryHandlers;
-using JewelArchitecture.Core.Application.Queries;
 using JewelArchitecture.Core.Application.Abstractions;
 using JewelArchitecture.Core.Application.CommandHandlers;
 using JewelArchitecture.Core.Application.Commands;
