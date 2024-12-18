@@ -3,6 +3,86 @@ Jewel Architecture is a fusion of DDD, CQRS, and Clean Architecture—a pattern 
 I call it Jewel Architecture because it organizes your system into multifaceted, interchangeable components, creating a highly valuable and mantainable structure—like a finely cut gem.
 Furthermore, Jewel Architecture leverages the usage of the Unit Of Work (UOW) pattern: this implementation includes buffering and dispatching of aggregate events to **preserve the domain logic's purity** while ensuring consistency in persistence and event publishing.
 
+## Architectural Diagram
+```mermaid
+flowchart TB
+    %% Layers
+    subgraph UI [Interface Layer]
+        A[UI/Controllers]
+    end
+
+    subgraph Application [Application Layer]
+        B[Use Cases]
+        S[Services]
+        CommandHandlers[Command Handlers]
+        Commands[Commands]
+        Queries[Queries]
+        EventHandlers[Event Handlers]
+        QueryHandlers[Query Handlers]
+        Abstractions[[Abstractions]]
+        AppDecorators[[Decorators]]
+    end
+
+    subgraph Domain [Domain Layer]
+        Aggregates[Aggregates]
+        Entities[Entities]
+        ValueObjects[Value Objects]
+        DomainEvents[Domain Events]
+        DomainServices[Domain Services]
+        EventBuffering[Unit of Work - Event Buffering]
+    end
+
+    subgraph Infrastructure [Infrastructure Layer]
+        Repositories[Repositories]
+        Messaging[Messaging]
+        Resilience[Resilience]
+        Concurrency[Concurrency]
+    end
+
+    %% Relationships
+    A --> B
+    A --> S
+    B --> Aggregates
+    S --> Aggregates
+    B --> S
+    B --> DomainServices
+    B --> Abstractions
+    DomainServices --> Aggregates
+    CommandHandlers --> Aggregates
+    QueryHandlers --> Aggregates
+    CommandHandlers --> Commands
+    QueryHandlers --> Queries
+    EventHandlers --> Aggregates
+    EventHandlers --> DomainEvents
+    EventHandlers --> Abstractions
+    QueryHandlers --> Abstractions
+    CommandHandlers --> Abstractions
+    AppDecorators -.-> B
+    AppDecorators -.-> CommandHandlers
+    AppDecorators -.-> QueryHandlers
+    Aggregates --> ValueObjects
+    Aggregates --> DomainEvents
+    Aggregates --> Entities
+    Aggregates --> EventBuffering
+    Repositories --> Abstractions
+    Resilience --> Abstractions
+    Messaging --> Abstractions
+    Concurrency --> Abstractions
+
+ %% Domain Layer
+    classDef blueLayer fill:#c8e5eb,stroke:#333,stroke-width:2px;
+    Domain:::blueLayer
+ %% App Layer
+    classDef ywLayer fill:#fcf1a9,stroke:#333,stroke-width:2px;
+    Application:::ywLayer
+ %% Interface Layer
+    classDef greenLayer fill:#e5f7ba,stroke:#333,stroke-width:2px;
+    UI:::greenLayer
+ %% Infrastructure Layer
+    classDef redLayer fill:#f7c2ba,stroke:#333,stroke-width:2px;
+    Infrastructure:::redLayer
+```
+
 ## Foundation Principles
 **0. Grounded in SOLID principles:** Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.
 
