@@ -100,7 +100,7 @@ flowchart TB
 **6. Focused Interaction:** The application layer exposes Use Cases or Services, offering clear entry points for the interface layer.
   
 ## Examples
-This repository contains solutions structured using the Jewel Architecture, like for example a simplified **Smart Charging** domain.
+This repository showcases solutions structured using the Jewel Architecture, including a simplified **Smart Charging** domain. The core domain invariant ensures that a Group capacity remains valid across all related Charge Stations and Connectors.
 Or even a fun version of the **Pokédex**, where under certain conditions, the description of a Pokémon is translated into Yoda's or Shakespeare's language.
 The examples use the solution **JewelArchitecture.Core as a base** to implement the specific domain logic. The example projects mirror the structure of the core with the 4 layers: Application, Domain, Interface and an optional Infrastructure level.
 
@@ -124,10 +124,8 @@ The solutions use an aggregate-based folder structure and follows a clean archit
 
 - If you need to add persistent storage, transactional support or external dependencies in the future, consider replacing the in-memory repository with another database implementation, adding external services, or configuring additional infrastructure components.
 
-## Smart Charging Prerequisites
+## Running the Examples - Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine
-  
-It is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for API documentation and uses an in-memory database, so no external dependencies are required.
 
 ## Getting Started
 
@@ -137,8 +135,7 @@ Clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/emanuelebuldrini/jewel-architecture.git
-cd Examples
-cd SmartCharging
+cd Examples/[ExampleProjectName]
 ```
 ### 2. Build the Solution
 Use the .NET CLI to restore and build the solution:
@@ -148,23 +145,55 @@ dotnet build
 ### 3. Run the Application
 Run the application using the .NET CLI.
 ```bash
-dotnet run --project ".\JewelArchitecture.Examples.SmartCharging.WebApi\JewelArchitecture.Examples.SmartCharging.WebApi.csproj"
+dotnet run --project "./JewelArchitecture.Examples.[ExampleProjectName].Interface/JewelArchitecture.Examples.[ExampleProjectName].Interface.csproj"
 ```
-### 4. Access the Application
-Once running, you can access the Swagger API documentation at:
 
-HTTP: http://localhost:5253/swagger
-
-### 5. Test the Application
+### 4. Test the Application
 To run tests for the application, use:
 ```bash
 dotnet test
 ```
+## Example-Specific Details
 
+### Smart Charging
+This is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for API documentation and uses an in-memory database, so **no external dependencies** are required.
+To run this example, navigate to the folder:
 
-## About This Project
+```bash
+cd Examples/SmartCharging
+```
 
-This project is an exploration of a software architecture that is suitable to tackle complex problems and challenges of the modern world, created during my own time using personal resources. It’s an opportunity to share ideas and contribute to the broader software engineering community. 
+And run the following command:
+
+```bash
+dotnet run --project "./JewelArchitecture.Examples.SmartCharging.Interface/JewelArchitecture.Examples.SmartCharging.Interface.csproj"
+```
+
+Once running, you can access the Swagger API documentation at:
+
+HTTP: http://localhost:5253/swagger
+
+### Fun Pokédex
+This is an ASP.NET Core Web API project built with .NET 8. The API is configured with Swagger for documentation and **depends on external APIs**, requiring an active internet connection.
+To run this example, navigate to the folder:
+
+```bash
+cd Examples/FunPokedex
+```
+
+And run the following command:
+
+```bash
+dotnet run --project "./JewelArchitecture.Examples.FunPokedex.Interface/JewelArchitecture.Examples.FunPokedex.Interface.csproj"
+```
+
+Once running, you can access the Swagger API documentation at:
+
+HTTP: http://localhost:5046/swagger
+
+## About Jewel Architecture Project
+
+This project explores an architecture designed to address complex software problems, developed in my own time using personal resources. It offers an opportunity to share ideas and contribute to the broader software engineering community.
 
 While this project reflects my passion for architecture and design, it is entirely separate from my professional work and is neither affiliated with nor endorsed by any employer.
 
