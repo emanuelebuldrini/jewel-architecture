@@ -60,6 +60,7 @@ flowchart TB
     AppDecorators -.-> B
     AppDecorators -.-> CommandHandlers
     AppDecorators -.-> QueryHandlers
+    AppDecorators -.-> EventHandlers
     Aggregates --> ValueObjects
     Aggregates --> DomainEvents
     Aggregates --> Entities
